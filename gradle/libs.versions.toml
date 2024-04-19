@@ -1,26 +1,60 @@
 [versions]
 agp = "8.3.0"
-kotlin = "1.9.0"
-coreKtx = "1.13.0"
+androidx-core-ktx = "1.13.0"
+androidx-appcompat = "1.6.1"
+androidx-activity = "1.9.0"
+androidx-constraintlayout = "2.1.4"
+google-material = "1.11.0"
+google-ksp = "1.9.22-1.0.18"
+google-dagger = "2.51.1"
+github-glide = "4.16.0"
+jetbrains-kotlin = "1.9.23"
+jetbrains-kotlinx-coroutines-core = "1.8.0"
+jetbrains-kotlinx-serialization = "1.9.23"
+jetbrains-kotlinx-serialization-json = "1.6.3"
+javax-inject = "1"
+squareup-leakcanary = "2.10"
+
+# used in gradle plugins
+compileSdk = "34"
+minSdk = "24"
+targetSdk = "34"
+jvm = "17"
 junit = "4.13.2"
 junitVersion = "1.1.5"
 espressoCore = "3.5.1"
-appcompat = "1.6.1"
-material = "1.11.0"
-activity = "1.8.0"
-constraintlayout = "2.1.4"
+jetbrainsKotlinJvm = "1.9.0"
 
 [libraries]
-androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
+androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "androidx-core-ktx" }
+androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "androidx-appcompat" }
+androidx-activity = { group = "androidx.activity", name = "activity", version.ref = "androidx-activity" }
+androidx-constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "androidx-constraintlayout" }
+google-material = { group = "com.google.android.material", name = "material", version.ref = "google-material" }
+google-dagger = { module = "com.google.dagger:dagger", version.ref = "google-dagger" }
+google-dagger-compiler = { module = "com.google.dagger:dagger-compiler", version.ref = "google-dagger" }
+github-glide = { module="com.github.bumptech.glide:glide", version.ref = "github-glide" }
+jetbrains-kotlinx-coroutines-core = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "jetbrains-kotlinx-coroutines-core" }
+jetbrains-kotlinx-serialization-json = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "jetbrains-kotlinx-serialization-json" }
+javax-inject = { module = "javax.inject:javax.inject", version.ref = "javax-inject" }
+squareup-leakcanary = { module="com.squareup.leakcanary:leakcanary-android", version.ref = "squareup-leakcanary" }
+
+# project internal convention plugin
+android-gradle-plugin = { group = "com.android.tools.build", name = "gradle", version.ref = "agp" }
+kotlin-gradle-plugin = { group = "org.jetbrains.kotlin", name = "kotlin-gradle-plugin", version.ref = "jetbrains-kotlin" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
 androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
 androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
-androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
-material = { group = "com.google.android.material", name = "material", version.ref = "material" }
-androidx-activity = { group = "androidx.activity", name = "activity", version.ref = "activity" }
-androidx-constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "constraintlayout" }
 
 [plugins]
-androidApplication = { id = "com.android.application", version.ref = "agp" }
-jetbrainsKotlinAndroid = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+android-application = { id = "com.android.application", version.ref = "agp" }
+android-library = { id = "com.android.library", version.ref = "agp" }
+jetbrains-kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "jetbrains-kotlin" }
+jetbrains-kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "jetbrains-kotlinx-serialization" }
+google-ksp = { id = "com.google.devtools.ksp", version.ref = "google-ksp" }
+
+# project internal convention plugins
+app-android-application = { id = "app.android.application", version = "unspecified" }
+app-kotlin-library = { id = "app.kotlin.library", version = "unspecified" }
+
 
