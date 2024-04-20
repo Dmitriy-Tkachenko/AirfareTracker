@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<font-family xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <font
+        android:font="@font/sf_pro_display_semibold"
+        app:font="@font/sf_pro_display_semibold"
+        tools:targetApi="o" />
+    <font
+        android:font="@font/sf_pro_display_medium"
+        app:font="@font/sf_pro_display_medium"
+        tools:targetApi="o" />
+    <font
+        android:font="@font/sf_pro_display_regular"
+        app:font="@font/sf_pro_display_regular"
+        tools:targetApi="o" />
+</font-family>

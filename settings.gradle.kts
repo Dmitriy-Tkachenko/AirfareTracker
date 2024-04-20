@@ -1,5 +1,8 @@
 @file:Suppress("UnstableApiUsage")
 
+include(":core:res")
+
+
 include(":module_injector")
 
 

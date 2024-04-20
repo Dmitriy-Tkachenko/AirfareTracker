@@ -55,6 +55,7 @@ google-ksp = { id = "com.google.devtools.ksp", version.ref = "google-ksp" }
 
 # project internal convention plugins
 app-android-application = { id = "app.android.application", version = "unspecified" }
+app-android-library = { id = "app.android.library", version = "unspecified" }
 app-kotlin-library = { id = "app.kotlin.library", version = "unspecified" }
 
 
