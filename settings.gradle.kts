@@ -1,4 +1,7 @@
 @file:Suppress("UnstableApiUsage")
+
+include(":screens:hotels")
+
 enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
 
 pluginManagement {
