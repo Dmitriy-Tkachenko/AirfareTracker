@@ -23,6 +23,7 @@ class AndroidApplicationConventionPlugin : Plugin<Project> {
 
             dependencies {
                 add("implementation", project(":module_injector"))
+                add("implementation", project(":core:res"))
             }
         }
     }

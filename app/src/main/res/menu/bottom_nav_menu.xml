@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/tab_airtickets"
+        android:icon="@drawable/ic_airtickets"
+        android:title="@string/tab_text_airtickets"/>
+
+    <item android:id="@+id/tab_hotels"
+        android:icon="@drawable/ic_hotels"
+        android:title="@string/tab_text_hotels"/>
+
+    <item android:id="@+id/tab_closer"
+        android:icon="@drawable/ic_closer"
+        android:title="@string/tab_text_closer"/>
+
+    <item android:id="@+id/tab_subscriptions"
+        android:icon="@drawable/ic_subscriptions"
+        android:title="@string/tab_text_subscriptions"/>
+
+    <item android:id="@+id/tab_profile"
+        android:icon="@drawable/ic_profile"
+        android:title="@string/tab_text_profile"/>
+</menu>
