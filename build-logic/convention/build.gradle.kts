@@ -34,6 +34,10 @@ gradlePlugin {
             id = "app.android.library"
             implementationClass = "AndroidLibraryConventionPlugin"
         }
+        register("androidScreen") {
+            id = "app.android.screen"
+            implementationClass = "AndroidScreenConventionPlugin"
+        }
         register("kotlinLibrary") {
             id = "app.kotlin.library"
             implementationClass = "KotlinLibraryConventionPlugin"

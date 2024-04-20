@@ -1,14 +1,4 @@
 @file:Suppress("UnstableApiUsage")
-
-include(":core:res")
-
-
-include(":module_injector")
-
-
-include(":screens")
-
-
 enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
 
 pluginManagement {
@@ -36,3 +26,6 @@ dependencyResolutionManagement {
 
 rootProject.name = "AirfareTracker"
 include(":app")
+include(":module_injector")
+include(":core:res")
+include(":screens:airfares")
