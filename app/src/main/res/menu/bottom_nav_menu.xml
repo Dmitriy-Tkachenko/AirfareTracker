@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:id="@+id/tab_airtickets"
-        android:icon="@drawable/ic_airtickets"
-        android:title="@string/tab_text_airtickets"/>
+    <item android:id="@+id/tab_airfares"
+        android:icon="@drawable/ic_airfares"
+        android:title="@string/tab_text_airfares"/>
 
     <item android:id="@+id/tab_hotels"
         android:icon="@drawable/ic_hotels"
