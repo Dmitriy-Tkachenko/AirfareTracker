@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Theme.AirfareTracker" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="android:windowBackground">@color/black</item>
+        <item name="android:statusBarColor">@color/black</item>
+    </style>
+
+    <style name="Title1">
+        <item name="android:fontFamily">@font/sf_pro_display_semibold</item>
+        <item name="android:textSize">@dimen/title1</item>
+    </style>
+
+    <style name="Title2">
+        <item name="android:fontFamily">@font/sf_pro_display_semibold</item>
+        <item name="android:textSize">@dimen/title2</item>
+    </style>
+
+    <style name="Title3">
+        <item name="android:fontFamily">@font/sf_pro_display_semibold</item>
+        <item name="android:textSize">@dimen/title3</item>
+    </style>
+
+    <style name="Title4">
+        <item name="android:fontFamily">@font/sf_pro_display_medium</item>
+        <item name="android:textSize">@dimen/title4</item>
+    </style>
+
+    <style name="Text1">
+        <item name="android:fontFamily">@font/sf_pro_display_regular</item>
+        <item name="android:textSize">@dimen/text1</item>
+    </style>
+
+    <style name="Text2">
+        <item name="android:fontFamily">@font/sf_pro_display_regular</item>
+        <item name="android:textSize">@dimen/text2</item>
+    </style>
+
+    <style name="ButtonText1">
+        <item name="android:fontFamily">@font/sf_pro_display_semibold</item>
+        <item name="android:textSize">@dimen/button_text1</item>
+    </style>
+
+    <style name="TabText">
+        <item name="android:fontFamily">@font/sf_pro_display_regular</item>
+        <item name="android:textSize">@dimen/tab_text</item>
+    </style>
+</resources>
