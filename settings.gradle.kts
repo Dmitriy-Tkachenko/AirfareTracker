@@ -1,5 +1,8 @@
 @file:Suppress("UnstableApiUsage")
 
+include(":screens:profile")
+
+
 include(":screens:subscriptions")
 
 
