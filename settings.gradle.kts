@@ -1,5 +1,8 @@
 @file:Suppress("UnstableApiUsage")
 
+include(":screens:closer")
+
+
 include(":screens:hotels")
 
 enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
