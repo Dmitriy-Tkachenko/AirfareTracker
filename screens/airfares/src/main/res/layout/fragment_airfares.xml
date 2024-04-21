@@ -1,6 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:paddingHorizontal="@dimen/p_hor_airfares_container"
+    android:gravity="center_horizontal"
+    tools:background="@color/black">
 
-</FrameLayout>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/m_top_title_airfares"
+        android:gravity="center"
+        android:text="@string/title_search_airfares"
+        android:textColor="@color/white"
+        style="@style/Title1" />
+
+</LinearLayout>
