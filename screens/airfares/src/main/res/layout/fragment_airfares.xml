@@ -6,14 +6,24 @@
     android:layout_height="match_parent"
     android:paddingHorizontal="@dimen/p_hor_airfares_container"
     android:gravity="center_horizontal"
+    android:orientation="vertical"
     tools:background="@color/black">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/m_top_title_airfares"
+        android:layout_marginTop="@dimen/m_top_title_header"
         android:gravity="center"
-        android:text="@string/title_search_airfares"
+        android:text="@string/title_header"
+        android:textColor="@color/white"
+        style="@style/Title1" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/m_top_title_offer_feed"
+        android:layout_gravity="start"
+        android:text="@string/title_offer_feed"
         android:textColor="@color/white"
         style="@style/Title1" />
 

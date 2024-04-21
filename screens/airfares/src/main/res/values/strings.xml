@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="title_search_airfares">Поиск дешевых\nавиабилетов</string>
+    <string name="title_header">Поиск дешевых\nавиабилетов</string>
+    <string name="title_offer_feed">Музыкально отлететь</string>
 </resources>
