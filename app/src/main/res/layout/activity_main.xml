@@ -8,19 +8,29 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+    <FrameLayout
+        android:id="@+id/fragment_container"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@id/bottom_nav"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_nav"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@color/black"
+        app:itemIconTint="@color/bottom_nav_item_color_selector"
+        app:itemRippleColor="@android:color/transparent"
+        app:itemTextAppearanceActive="@style/TabText"
+        app:itemTextAppearanceInactive="@style/TabText"
+        app:itemTextColor="@color/bottom_nav_item_color_selector"
+        app:labelVisibilityMode="labeled"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:itemIconTint="@color/bottom_nav_item_color_selector"
-        app:itemTextColor="@color/bottom_nav_item_color_selector"
-        app:itemRippleColor="@android:color/transparent"
-        app:backgroundTint="@color/black"
-        app:itemTextAppearanceActive="@style/TabText"
-        app:itemTextAppearanceInactive="@style/TabText"
-        app:menu="@menu/bottom_nav_menu"
-        app:labelVisibilityMode="labeled"/>
+        app:menu="@menu/bottom_nav_menu" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

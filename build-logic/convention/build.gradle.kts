@@ -38,6 +38,10 @@ gradlePlugin {
             id = "app.android.screen"
             implementationClass = "AndroidScreenConventionPlugin"
         }
+        register("androidCoreUtils") {
+            id = "app.android.core.utils"
+            implementationClass = "AndroidCoreUtilsConventionPlugin"
+        }
         register("kotlinLibrary") {
             id = "app.kotlin.library"
             implementationClass = "KotlinLibraryConventionPlugin"

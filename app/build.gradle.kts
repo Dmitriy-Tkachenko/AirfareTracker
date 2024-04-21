@@ -23,9 +23,18 @@ android {
 }
 
 dependencies {
+    implementation(projects.screens.airfares)
+    implementation(projects.screens.hotels)
+    implementation(projects.screens.closer)
+    implementation(projects.screens.subscriptions)
+    implementation(projects.screens.profile)
+
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
+    implementation(libs.androidx.fragment.ktx)
     implementation(libs.google.material)
+    implementation(libs.google.dagger)
+    ksp(libs.google.dagger.compiler)
 }

@@ -23,7 +23,6 @@ class AndroidScreenConventionPlugin : Plugin<Project> {
 
                 add("implementation", libs.findLibrary("androidx.core.ktx").get())
                 add("implementation", libs.findLibrary("androidx.appcompat").get())
-                add("implementation", libs.findLibrary("google.material").get())
             }
         }
     }
