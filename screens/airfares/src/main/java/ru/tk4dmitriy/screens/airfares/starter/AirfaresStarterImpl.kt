@@ -2,7 +2,7 @@ package ru.tk4dmitriy.screens.airfares.starter
 
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentTransaction
-import ru.tk4dmitriy.screens.airfares.AirfaresFragment
+import ru.tk4dmitriy.screens.airfares.ui.AirfaresFragment
 import ru.tk4dmitriy.screens.airfares.api.AirfaresStarter
 import javax.inject.Inject
 

@@ -22,6 +22,7 @@ class AndroidLibraryConventionPlugin : Plugin<Project> {
             }
 
             dependencies {
+                add("implementation", libs.findLibrary("google.material").get())
                 add("implementation", libs.findLibrary("google.dagger").get())
                 add("ksp", libs.findLibrary("google.dagger.compiler").get())
             }

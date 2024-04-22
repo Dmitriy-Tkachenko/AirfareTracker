@@ -5,3 +5,8 @@ plugins {
 android {
     namespace = "ru.tk4dmitriy.screens.airfares"
 }
+
+dependencies {
+    implementation(projects.features.departurePlace.api)
+    implementation(projects.features.offers.api)
+}

@@ -24,11 +24,6 @@ class AndroidApplicationConventionPlugin : Plugin<Project> {
                 defaultConfig.targetSdk = libs.findVersion("targetSdk").get().toString().toInt()
                 configureKotlin()
             }
-
-            dependencies {
-                add("implementation", project(":module_injector"))
-                add("implementation", project(":core:res"))
-            }
         }
     }
 }

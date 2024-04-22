@@ -23,6 +23,16 @@ android {
 }
 
 dependencies {
+    implementation(projects.moduleInjector)
+    implementation(projects.core.res)
+    implementation(projects.data.departurePlace.api)
+    implementation(projects.data.departurePlace.impl)
+    implementation(projects.data.offers.api)
+    implementation(projects.data.offers.impl)
+    implementation(projects.features.departurePlace.api)
+    implementation(projects.features.departurePlace.impl)
+    implementation(projects.features.offers.api)
+    implementation(projects.features.offers.impl)
     implementation(projects.screens.airfares)
     implementation(projects.screens.hotels)
     implementation(projects.screens.closer)

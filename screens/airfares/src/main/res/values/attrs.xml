@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="SearchRoutLayout">
+        <attr name="baseColor" format="color"/>
+        <attr name="lineColor" format="color"/>
+        <attr name="icSearchColor" format="color"/>
+        <attr name="searchRoutViewStyle" format="reference"/>
+    </declare-styleable>
+</resources>

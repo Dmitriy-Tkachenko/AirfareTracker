@@ -34,6 +34,10 @@ gradlePlugin {
             id = "app.android.library"
             implementationClass = "AndroidLibraryConventionPlugin"
         }
+        register("androidData") {
+            id = "app.android.data"
+            implementationClass = "AndroidDataConventionPlugin"
+        }
         register("androidScreen") {
             id = "app.android.screen"
             implementationClass = "AndroidScreenConventionPlugin"
@@ -45,6 +49,10 @@ gradlePlugin {
         register("kotlinLibrary") {
             id = "app.kotlin.library"
             implementationClass = "KotlinLibraryConventionPlugin"
+        }
+        register("featureLibrary") {
+            id = "app.feature.library"
+            implementationClass = "FeatureLibraryConventionPlugin"
         }
     }
 }

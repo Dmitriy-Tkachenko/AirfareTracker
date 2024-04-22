@@ -2,4 +2,10 @@
 <resources>
     <string name="title_header">Поиск дешевых\nавиабилетов</string>
     <string name="title_offer_feed">Музыкально отлететь</string>
+    <string name="departure_hint">Откуда - Москва</string>
+    <string name="arrival_hint">Куда - Турция</string>
+    <string name="price_prefix">от</string>
+    <string name="ruble">₽</string>
+    
+    <string name="desc_airplane">Airplane</string>
 </resources>

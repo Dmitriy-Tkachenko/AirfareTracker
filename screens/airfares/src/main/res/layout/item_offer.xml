@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    tools:background="@color/black">
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/img_preview"
+        android:layout_width="@dimen/width_img_preview"
+        android:layout_height="@dimen/height_img_preview"
+        android:theme="@style/ShapeAppearanceOverlay.App.CornerSize16dp"
+        android:background="@color/white" />
+
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/m_top_tv_title"
+        android:textColor="@color/white"
+        style="@style/Title3"
+        tools:text="Die Antwoord"/>
+
+    <TextView
+        android:id="@+id/tv_town"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/m_top_tv_town"
+        android:textColor="@color/white"
+        style="@style/Text2"
+        tools:text="Будапешт"/>
+
+    <TextView
+        android:id="@+id/tv_price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/m_top_tv_price"
+        android:textColor="@color/white"
+        app:drawableLeftCompat="@drawable/ic_airplane"
+        tools:text="от 22 264 ₽"
+        tools:drawableStart="@drawable/ic_airplane"/>
+
+</LinearLayout>

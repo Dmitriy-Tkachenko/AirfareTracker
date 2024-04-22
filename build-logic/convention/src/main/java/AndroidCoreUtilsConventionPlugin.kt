@@ -13,6 +13,7 @@ class AndroidCoreUtilsConventionPlugin : Plugin<Project> {
             dependencies {
                 add("implementation", libs.findLibrary("androidx.core.ktx").get())
                 add("implementation", libs.findLibrary("androidx.appcompat").get())
+                add("implementation", libs.findLibrary("androidx.recyclerview").get())
             }
         }
     }

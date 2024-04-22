@@ -20,9 +20,14 @@ class AndroidScreenConventionPlugin : Plugin<Project> {
             dependencies {
                 add("implementation", project(":module_injector"))
                 add("implementation", project(":core:res"))
+                add("implementation", project(":core:utils"))
 
                 add("implementation", libs.findLibrary("androidx.core.ktx").get())
                 add("implementation", libs.findLibrary("androidx.appcompat").get())
+                add("implementation", libs.findLibrary("androidx.recyclerview").get())
+                add("implementation", libs.findLibrary("androidx.lifecycle.viewmodel.ktx").get())
+                add("implementation", libs.findLibrary("google.material").get())
+                add("implementation", libs.findLibrary("github.glide").get())
             }
         }
     }

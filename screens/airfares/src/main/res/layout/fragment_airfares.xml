@@ -1,30 +1,56 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingHorizontal="@dimen/p_hor_airfares_container"
-    android:gravity="center_horizontal"
-    android:orientation="vertical"
     tools:background="@color/black">
 
-    <TextView
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/m_top_title_header"
-        android:gravity="center"
-        android:text="@string/title_header"
-        android:textColor="@color/white"
-        style="@style/Title1" />
+        android:paddingHorizontal="@dimen/p_hor_airfares_container"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/m_top_title_offer_feed"
-        android:layout_gravity="start"
-        android:text="@string/title_offer_feed"
-        android:textColor="@color/white"
-        style="@style/Title1" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/m_top_title_header"
+            android:gravity="center"
+            android:text="@string/title_header"
+            android:textColor="@color/white"
+            style="@style/Title1" />
 
-</LinearLayout>
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/m_top_search_rout_container"
+            android:paddingHorizontal="@dimen/p_hor_search_rout_container"
+            android:paddingVertical="@dimen/p_vert_search_rout_container"
+            android:background="@drawable/rounded_background">
+
+            <ru.tk4dmitriy.screens.airfares.ui.customView.SearchRoutLayout
+                android:id="@+id/search_rout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+        </FrameLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/m_top_title_offer_feed"
+            android:layout_gravity="start"
+            android:text="@string/title_offer_feed"
+            android:textColor="@color/white"
+            style="@style/Title1" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_offers"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="@dimen/m_top_rv_offers"/>
+
+    </LinearLayout>
+</ScrollView>

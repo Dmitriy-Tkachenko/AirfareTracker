@@ -5,7 +5,3 @@ plugins {
 android {
     namespace = "ru.tk4dmitriy.core.res"
 }
-
-dependencies {
-    implementation(libs.google.material)
-}

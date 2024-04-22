@@ -5,6 +5,32 @@
 
     <!-- fragment_airfares -->
     <dimen name="p_hor_airfares_container">16dp</dimen>
+    <dimen name="p_hor_search_rout_container">16dp</dimen>
+    <dimen name="p_vert_search_rout_container">16dp</dimen>
     <dimen name="m_top_title_header">28dp</dimen>
     <dimen name="m_top_title_offer_feed">32dp</dimen>
+    <dimen name="m_top_search_rout_container">36dp</dimen>
+    <dimen name="m_top_rv_offers">16dp</dimen>
+    <dimen name="background_corner_radius">16dp</dimen>
+
+    <!-- SearchRoutLayout -->
+    <dimen name="m_left_edit_text">49dp</dimen>
+    <dimen name="m_right_edit_text">42dp</dimen>
+    <dimen name="m_left_line">48dp</dimen>
+    <dimen name="m_right_line">16dp</dimen>
+    <dimen name="m_left_search_image">12dp</dimen>
+    <dimen name="m_top_edit_text">16dp</dimen>
+    <dimen name="m_bottom_edit_text">16dp</dimen>
+    <dimen name="base_corner_radius">16dp</dimen>
+    <dimen name="height_line">1dp</dimen>
+    
+    <!-- item_offer -->
+    <dimen name="m_top_tv_title">8dp</dimen>
+    <dimen name="m_top_tv_town">8dp</dimen>
+    <dimen name="m_top_tv_price">8dp</dimen>
+    <dimen name="width_img_preview">132dp</dimen>
+    <dimen name="height_img_preview">132dp</dimen>
+
+    <!-- OfferItemDecoration -->
+    <dimen name="m_left_offer">16dp</dimen>
 </resources>
