@@ -8,4 +8,17 @@
     <string name="ruble">₽</string>
     
     <string name="desc_airplane">Airplane</string>
+    <string name="desc_bottom_sheet">BottomSheet</string>
+    <string name="title_difficult_rout">Сложный\nмаршрут</string>
+    <string name="title_anywhere">Куда угодно</string>
+    <string name="title_calendar">Выходные</string>
+    <string name="title_hot_tickets">Горячие\nбилеты</string>
+    <string name="desc_istanbul">Стамбул</string>
+    <string name="text_istanbul">Стамбул</string>
+    <string name="text_rec_desc">Популярное направление</string>
+    <string name="text_sochi">Сочи</string>
+    <string name="text_phuket">Пхукет</string>
+    <string name="ft_btn_back">обратно</string>
+    <string name="desc_back">Обратно</string>
+    <string name="btn_filter">фильтры</string>
 </resources>

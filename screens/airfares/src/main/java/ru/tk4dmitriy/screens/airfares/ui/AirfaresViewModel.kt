@@ -23,7 +23,7 @@ import ru.tk4dmitriy.screens.airfares.di.AirfaresComponentHolder
 import ru.tk4dmitriy.screens.airfares.ui.models.OfferUi
 import javax.inject.Inject
 
-class AirfaresViewModel @Inject constructor(
+internal class AirfaresViewModel @Inject constructor(
     private val saveDeparturePlaceFeatureCase: SaveDeparturePlaceFeatureCase,
     private val getDeparturePlaceFeatureCase: GetDeparturePlaceFeatureCase,
     private val getOffersFeatureCase: GetOffersFeatureCase

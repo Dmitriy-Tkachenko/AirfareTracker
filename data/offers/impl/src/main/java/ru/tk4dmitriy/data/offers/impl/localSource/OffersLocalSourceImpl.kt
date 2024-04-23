@@ -10,7 +10,7 @@ import javax.inject.Inject
 
 private const val FILE_NAME = "offers.json"
 
-class OffersLocalSourceImpl @Inject constructor(
+internal class OffersLocalSourceImpl @Inject constructor(
     private val context: Context
 ) : OffersLocalSource {
     override suspend fun getOffers(): List<Offer> {

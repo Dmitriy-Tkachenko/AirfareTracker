@@ -2,13 +2,13 @@ package ru.tk4dmitriy.screens.airfares.starter
 
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentTransaction
-import ru.tk4dmitriy.screens.airfares.ui.AirfaresFragment
+import ru.tk4dmitriy.screens.airfares.ui.fragments.AirfaresFragment
 import ru.tk4dmitriy.screens.airfares.api.AirfaresStarter
 import javax.inject.Inject
 
 private const val TAG = "AIRFARES_FRAGMENT"
 
-class AirfaresStarterImpl @Inject constructor() : AirfaresStarter {
+internal class AirfaresStarterImpl @Inject constructor() : AirfaresStarter {
     override fun getTag(): String = TAG
 
     override fun addFragment(containerViewId: Int, transaction: FragmentTransaction) {

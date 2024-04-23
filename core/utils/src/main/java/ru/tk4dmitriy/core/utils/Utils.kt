@@ -27,4 +27,12 @@ object Utils {
         open(assetName).use { inputStream ->
             return inputStream.readBytes()
         }
+
+    fun String.filterText(): String {
+        val regex = Regex("[^а-яёА-ЯЁ\\s-]")
+        return this.replace(regex, "")
+            .replace("\\s+".toRegex(), " ")
+            .replace("--+".toRegex(), "-")
+
+    }
 }

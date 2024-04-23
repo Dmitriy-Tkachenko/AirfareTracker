@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:background="@color/black">
+
+    <ru.tk4dmitriy.screens.airfares.ui.customView.SearchRoute3Layout
+        android:id="@+id/searchRoute"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingHorizontal="@dimen/ft_tickets_container_p_hor"
+        android:layout_marginTop="@dimen/ft_sr3_m_top"/>
+
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/ft_scroll_m_top"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingVertical="@dimen/ft_tv_back_p_vert"
+                android:paddingHorizontal="@dimen/ft_tv_back_p_hor"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:includeFontPadding="false"
+                android:background="@drawable/rounded_btn"
+                android:drawablePadding="@dimen/ft_tv_drawable_p"
+                android:text="@string/ft_btn_back"
+                app:drawableLeftCompat="@drawable/ic_plus"
+                tools:drawableStart="@drawable/ic_plus"
+                style="@style/Title4"/>
+
+            <LinearLayout
+                android:id="@+id/ft_btn_departure_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/ft_tv_btn_m_left"
+                android:paddingStart="@dimen/ft_ll_departure_p_start"
+                android:paddingTop="@dimen/ft_ll_departure_p_top"
+                android:paddingRight="@dimen/ft_ll_departure_p_right"
+                android:paddingBottom="@dimen/ft_ll_departure_p_bottom"
+                android:orientation="horizontal"
+                android:background="@drawable/rounded_btn">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAllCaps="false"
+                    android:textColor="@color/white"
+                    android:includeFontPadding="false"
+                    android:text="24 фев"
+                    style="@style/Title4"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAllCaps="false"
+                    android:textColor="@color/grey_6"
+                    android:includeFontPadding="false"
+                    android:text=", сб"
+                    style="@style/Title4"/>
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/ft_tv_btn_m_left"
+                android:paddingVertical="@dimen/ft_tv_btn_padding_vert"
+                android:paddingHorizontal="@dimen/ft_tv_btn_padding_hor"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:includeFontPadding="false"
+                android:background="@drawable/rounded_btn"
+                android:drawablePadding="@dimen/ft_tv_drawable_p"
+                android:text="1,эконом"
+                app:drawableLeftCompat="@drawable/ic_passenger"
+                tools:drawableStart="@drawable/ic_passenger"
+                style="@style/Title4"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/ft_tv_btn_m_left"
+                android:paddingVertical="@dimen/ft_tv_btn_padding_vert"
+                android:paddingHorizontal="@dimen/ft_tv_btn_padding_hor"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:includeFontPadding="false"
+                android:background="@drawable/rounded_btn"
+                android:drawablePadding="@dimen/ft_tv_drawable_p"
+                android:text="@string/btn_filter"
+                app:drawableLeftCompat="@drawable/ic_filter"
+                tools:drawableStart="@drawable/ic_filter"
+                style="@style/Title4"/>
+
+        </LinearLayout>
+
+    </HorizontalScrollView>
+
+</LinearLayout>

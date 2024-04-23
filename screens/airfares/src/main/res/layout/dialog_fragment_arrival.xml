@@ -1,0 +1,409 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:background="@color/grey_2">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="@dimen/df_arrival_container_p_hor">
+
+            <ImageView
+                android:id="@+id/iv_decor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/df_iv_decor_m_top"
+                android:contentDescription="@string/desc_bottom_sheet"
+                android:src="@drawable/ic_bottom_sheet_decor"
+                app:layout_constraintBottom_toTopOf="@+id/search_rout_2"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ru.tk4dmitriy.screens.airfares.ui.customView.SearchRoute2Layout
+                android:id="@+id/search_rout_2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/df_sr2_m_top"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/iv_decor" />
+
+            <TextView
+                android:id="@+id/tv_difficult_rout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/df_quick_btn_container_m_top"
+                android:gravity="center_horizontal"
+                android:text="@string/title_difficult_rout"
+                android:textColor="@color/white"
+                android:drawablePadding="@dimen/df_quick_btn_drawable_p"
+                app:drawableTopCompat="@drawable/ic_difficult_rout"
+                app:layout_constraintEnd_toStartOf="@+id/tv_anywhere"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/search_rout_2"
+                style="@style/Text2"
+                tools:drawableTop="@drawable/ic_difficult_rout" />
+
+            <TextView
+                android:id="@+id/tv_anywhere"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/df_quick_btn_m_left"
+                android:gravity="center"
+                android:text="@string/title_anywhere"
+                android:textColor="@color/white"
+                android:drawablePadding="@dimen/df_quick_btn_drawable_p"
+                app:drawableTopCompat="@drawable/ic_anywhere"
+                app:layout_constraintEnd_toStartOf="@+id/tv_calendar"
+                app:layout_constraintStart_toEndOf="@+id/tv_difficult_rout"
+                app:layout_constraintTop_toTopOf="@+id/tv_difficult_rout"
+                style="@style/Text2"
+                tools:drawableTop="@drawable/ic_anywhere" />
+
+            <TextView
+                android:id="@+id/tv_calendar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/df_quick_btn_m_left"
+                android:gravity="center_horizontal"
+                android:text="@string/title_calendar"
+                android:textColor="@color/white"
+                android:drawablePadding="@dimen/df_quick_btn_drawable_p"
+                app:drawableTopCompat="@drawable/ic_calendar"
+                app:layout_constraintEnd_toStartOf="@+id/tv_hot_tickets"
+                app:layout_constraintStart_toEndOf="@+id/tv_anywhere"
+                app:layout_constraintTop_toTopOf="@+id/tv_difficult_rout"
+                style="@style/Text2"
+                tools:drawableTop="@drawable/ic_calendar" />
+
+            <TextView
+                android:id="@+id/tv_hot_tickets"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/df_quick_btn_m_left"
+                android:gravity="center_horizontal"
+                android:text="@string/title_hot_tickets"
+                android:textColor="@color/white"
+                android:drawablePadding="@dimen/df_quick_btn_drawable_p"
+                app:drawableTopCompat="@drawable/ic_hot_tickets"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/tv_calendar"
+                app:layout_constraintTop_toTopOf="@+id/tv_difficult_rout"
+                style="@style/Text2"
+                tools:drawableTop="@drawable/ic_hot_tickets" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:layout_marginBottom="200dp"
+                android:background="@drawable/rounded_bg"
+                android:orientation="vertical"
+                android:paddingHorizontal="16dp"
+                android:paddingVertical="16dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_difficult_rout"
+                app:layout_constraintVertical_bias="0.0">
+
+                <LinearLayout
+                    android:id="@+id/ll_rec_item_1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <com.google.android.material.imageview.ShapeableImageView
+                        android:id="@+id/iv_city_1"
+                        android:layout_width="@dimen/df_rec_iv_city_width"
+                        android:layout_height="@dimen/df_rec_iv_city_height"
+                        android:background="@drawable/istanbul"
+                        android:theme="@style/ShapeAppearanceOverlay.App.CornerSize8dp"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/tv_istanbul"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/df_rec_arrival_text_m_left"
+                            android:text="@string/text_istanbul"
+                            android:textColor="@color/white"
+                            style="@style/Title3" />
+
+                        <TextView
+                            android:id="@+id/tv_rec_desc_1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/df_rec_arrival_text_m_left"
+                            android:text="@string/text_rec_desc"
+                            android:textColor="@color/grey_5"
+                            style="@style/Text2" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <View
+                    android:id="@+id/divider_1"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/df_rec_divider_height"
+                    android:layout_marginTop="@dimen/df_rec_divider_m_top"
+                    android:background="@color/grey_4" />
+
+                <LinearLayout
+                    android:id="@+id/ll_rec_item_2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/df_rec_arrival_item_m_top"
+                    android:orientation="horizontal">
+
+                    <com.google.android.material.imageview.ShapeableImageView
+                        android:id="@+id/iv_city_2"
+                        android:layout_width="@dimen/df_rec_iv_city_width"
+                        android:layout_height="@dimen/df_rec_iv_city_height"
+                        android:background="@drawable/sochi"
+                        android:theme="@style/ShapeAppearanceOverlay.App.CornerSize8dp"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/tv_sochi"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/df_rec_arrival_text_m_left"
+                            android:textColor="@color/white"
+                            android:text="@string/text_sochi"
+                            style="@style/Title3" />
+
+                        <TextView
+                            android:id="@+id/tv_rec_desc_2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/df_rec_arrival_text_m_left"
+                            android:textColor="@color/grey_5"
+                            android:text="@string/text_rec_desc"
+                            style="@style/Text2" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <View
+                    android:id="@+id/divider_2"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/df_rec_divider_height"
+                    android:layout_marginTop="@dimen/df_rec_divider_m_top"
+                    android:background="@color/grey_4" />
+
+                <LinearLayout
+                    android:id="@+id/ll_rec_item_3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/df_rec_arrival_item_m_top"
+                    android:orientation="horizontal">
+
+                    <com.google.android.material.imageview.ShapeableImageView
+                        android:id="@+id/iv_city_3"
+                        android:layout_width="@dimen/df_rec_iv_city_width"
+                        android:layout_height="@dimen/df_rec_iv_city_height"
+                        android:background="@drawable/phuket"
+                        android:theme="@style/ShapeAppearanceOverlay.App.CornerSize8dp"
+                        style="@style/ShapeAppearanceOverlay.App.CornerSize8dp" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/tv_phuket"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/df_rec_arrival_text_m_left"
+                            android:textColor="@color/white"
+                            android:text="@string/text_phuket"
+                            style="@style/Title3"
+                            app:layout_constraintStart_toEndOf="@id/iv_city_3"
+                            app:layout_constraintTop_toTopOf="@id/iv_city_3" />
+
+                        <TextView
+                            android:id="@+id/tv_rec_desc_3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/df_rec_arrival_text_m_left"
+                            android:textColor="@color/grey_5"
+                            android:text="@string/text_rec_desc"
+                            style="@style/Text2" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <View
+                    android:id="@+id/divider_3"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/df_rec_divider_height"
+                    android:layout_marginTop="@dimen/df_rec_divider_m_top"
+                    android:background="@color/grey_4" />
+
+            </LinearLayout>
+
+
+
+            <!--<androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:background="@drawable/rounded_bg"
+                android:paddingHorizontal="16dp"
+                android:paddingVertical="16dp"
+                android:layout_marginBottom="200dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_difficult_rout"
+                app:layout_constraintVertical_bias="0.0">
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/iv_city_1"
+                    android:layout_width="@dimen/df_rec_iv_city_width"
+                    android:layout_height="@dimen/df_rec_iv_city_height"
+                    android:background="@drawable/sochi"
+                    android:theme="@style/ShapeAppearanceOverlay.App.CornerSize8dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:contentDescription="@string/desc_istanbul" />
+
+                <TextView
+                    android:id="@+id/tv_istanbul"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/df_rec_arrival_text_m_left"
+                    android:textColor="@color/white"
+                    android:text="@string/text_istanbul"
+                    style="@style/Title3"
+                    app:layout_constraintStart_toEndOf="@id/iv_city_1"
+                    app:layout_constraintTop_toTopOf="@id/iv_city_1" />
+
+                <TextView
+                    android:id="@+id/tv_rec_desc_1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/grey_5"
+                    android:text="@string/text_rec_desc"
+                    style="@style/Text2"
+                    app:layout_constraintStart_toStartOf="@id/tv_istanbul"
+                    app:layout_constraintTop_toBottomOf="@id/tv_istanbul" />
+
+                <View
+                    android:id="@+id/divider_1"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/df_rec_divider_height"
+                    android:layout_marginTop="@dimen/df_rec_divider_m_top"
+                    android:background="@color/grey_4"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_rec_desc_1" />
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/iv_city_2"
+                    android:layout_width="@dimen/df_rec_iv_city_width"
+                    android:layout_height="@dimen/df_rec_iv_city_height"
+                    android:layout_marginTop="@dimen/df_rec_arrival_item_m_top"
+                    android:background="@drawable/sochi"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/divider_1"
+                    android:theme="@style/ShapeAppearanceOverlay.App.CornerSize8dp"/>
+
+                <TextView
+                    android:id="@+id/tv_sochi"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/df_rec_arrival_text_m_left"
+                    android:textColor="@color/white"
+                    android:text="@string/text_sochi"
+                    style="@style/Title3"
+                    app:layout_constraintStart_toEndOf="@id/iv_city_2"
+                    app:layout_constraintTop_toTopOf="@id/iv_city_2" />
+
+                <TextView
+                    android:id="@+id/tv_rec_desc_2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/grey_5"
+                    android:text="@string/text_rec_desc"
+                    style="@style/Text2"
+                    app:layout_constraintStart_toStartOf="@id/tv_sochi"
+                    app:layout_constraintTop_toBottomOf="@id/tv_sochi" />
+
+                <View
+                    android:id="@+id/divider2"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/df_rec_divider_height"
+                    android:layout_marginTop="@dimen/df_rec_divider_m_top"
+                    android:background="@color/grey_4"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_rec_desc_2" />
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/iv_city_3"
+                    android:layout_width="@dimen/df_rec_iv_city_width"
+                    android:layout_height="@dimen/df_rec_iv_city_height"
+                    android:layout_marginTop="@dimen/df_rec_arrival_item_m_top"
+                    android:background="@drawable/sochi"
+                    android:theme="@style/ShapeAppearanceOverlay.App.CornerSize8dp"
+                    style="@style/ShapeAppearanceOverlay.App.CornerSize8dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/divider2" />
+
+                <TextView
+                    android:id="@+id/tv_phuket"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/df_rec_arrival_text_m_left"
+                    android:textColor="@color/white"
+                    android:text="@string/text_phuket"
+                    style="@style/Title3"
+                    app:layout_constraintStart_toEndOf="@id/iv_city_3"
+                    app:layout_constraintTop_toTopOf="@id/iv_city_3" />
+
+                <TextView
+                    android:id="@+id/tv_rec_desc_3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/grey_5"
+                    android:text="@string/text_rec_desc"
+                    style="@style/Text2"
+                    app:layout_constraintStart_toStartOf="@id/tv_phuket"
+                    app:layout_constraintTop_toBottomOf="@id/tv_phuket" />
+
+                <View
+                    android:id="@+id/divider3"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/df_rec_divider_height"
+                    android:layout_marginTop="@dimen/df_rec_divider_m_top"
+                    android:background="@color/grey_4"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_rec_desc_3" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>-->
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.core.widget.NestedScrollView>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

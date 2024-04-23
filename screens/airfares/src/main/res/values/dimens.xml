@@ -2,35 +2,96 @@
 <resources>
     <!-- p_ = padding -->
     <!-- m_ = margin -->
+    <!-- tv_ = TextView -->
+    <!-- iv_ = ImageView -->
+    <!-- rv_ = RecyclerView -->
+    <!-- et_ = EditText -->
 
     <!-- fragment_airfares -->
-    <dimen name="p_hor_airfares_container">16dp</dimen>
-    <dimen name="p_hor_search_rout_container">16dp</dimen>
-    <dimen name="p_vert_search_rout_container">16dp</dimen>
-    <dimen name="m_top_title_header">28dp</dimen>
-    <dimen name="m_top_title_offer_feed">32dp</dimen>
-    <dimen name="m_top_search_rout_container">36dp</dimen>
-    <dimen name="m_top_rv_offers">16dp</dimen>
-    <dimen name="background_corner_radius">16dp</dimen>
+    <dimen name="fa_airfares_container_p_hor">16dp</dimen>
+    <dimen name="fa_search_container_m_top">36dp</dimen>
+    <dimen name="fa_search_container_p_hor">16dp</dimen>
+    <dimen name="fa_search_container_p_vert">16dp</dimen>
+    <dimen name="fa_tv_header_m_top">28dp</dimen>
+    <dimen name="fa_tv_offer_m_top">32dp</dimen>
+    <dimen name="fa_rv_offers_m_top">16dp</dimen>
+
+    <!-- rounded_bg -->
+    <dimen name="r_bg_corner_radius">16dp</dimen>
 
     <!-- SearchRoutLayout -->
-    <dimen name="m_left_edit_text">49dp</dimen>
-    <dimen name="m_right_edit_text">42dp</dimen>
-    <dimen name="m_left_line">48dp</dimen>
-    <dimen name="m_right_line">16dp</dimen>
-    <dimen name="m_left_search_image">12dp</dimen>
-    <dimen name="m_top_edit_text">16dp</dimen>
-    <dimen name="m_bottom_edit_text">16dp</dimen>
-    <dimen name="base_corner_radius">16dp</dimen>
-    <dimen name="height_line">1dp</dimen>
-    
+    <dimen name="sr_et_m_left">48dp</dimen>
+    <dimen name="sr_et_m_top">8dp</dimen>
+    <dimen name="sr_et_m_right">16dp</dimen>
+    <dimen name="sr_et_m_bottom">8dp</dimen>
+    <dimen name="sr_line_height">1dp</dimen>
+    <dimen name="sr_line_m_left">48dp</dimen>
+    <dimen name="sr_line_m_right">16dp</dimen>
+    <dimen name="sr_iv_search_m_left">12dp</dimen>
+    <dimen name="sr_base_corner_radius">16dp</dimen>
+
     <!-- item_offer -->
-    <dimen name="m_top_tv_title">8dp</dimen>
-    <dimen name="m_top_tv_town">8dp</dimen>
-    <dimen name="m_top_tv_price">8dp</dimen>
-    <dimen name="width_img_preview">132dp</dimen>
-    <dimen name="height_img_preview">132dp</dimen>
+    <dimen name="if_tv_title_m_top">8dp</dimen>
+    <dimen name="if_tv_town_m_top">8dp</dimen>
+    <dimen name="if_tv_price_m_top">8dp</dimen>
+    <dimen name="if_iv_preview_width">132dp</dimen>
+    <dimen name="if_iv_preview_height">132dp</dimen>
 
     <!-- OfferItemDecoration -->
-    <dimen name="m_left_offer">16dp</dimen>
+    <dimen name="offer_m_left">16dp</dimen>
+
+    <!-- SearchRout2Layout -->
+    <dimen name="sr2_et_m_left">16dp</dimen>
+    <dimen name="sr2_et_m_top">8dp</dimen>
+    <dimen name="sr2_et_m_right">16dp</dimen>
+    <dimen name="sr2_et_m_bottom">8dp</dimen>
+    <dimen name="sr2_et_compound_drawable_p">8dp</dimen>
+    <dimen name="sr2_line_height">1dp</dimen>
+    <dimen name="sr2_line_m_left">16dp</dimen>
+    <dimen name="sr2_line_m_right">16dp</dimen>
+    <dimen name="sr2_base_corner_radius">16dp</dimen>
+
+    <!-- SearchRout3Layout -->
+    <dimen name="sr3_et_m_left">40dp</dimen>
+    <dimen name="sr3_et_m_top">8dp</dimen>
+    <dimen name="sr3_et_m_right">16dp</dimen>
+    <dimen name="sr3_et_m_bottom">8dp</dimen>
+    <dimen name="sr3_et_compound_drawable_p">8dp</dimen>
+    <dimen name="sr3_line_height">1dp</dimen>
+    <dimen name="sr3_line_m_left">40dp</dimen>
+    <dimen name="sr3_line_m_right">16dp</dimen>
+    <dimen name="sr3_base_corner_radius">16dp</dimen>
+    <dimen name="sr3_iv_back_m_left">8dp</dimen>
+
+
+    <!-- dialog_fragment_arrival -->
+    <dimen name="df_arrival_container_p_hor">16dp</dimen>
+    <dimen name="df_iv_decor_m_top">16dp</dimen>
+    <dimen name="df_sr2_m_top">24dp</dimen>
+    <dimen name="df_quick_btn_container_m_top">24dp</dimen>
+    <dimen name="df_quick_btn_m_left">16dp</dimen>
+    <dimen name="df_quick_btn_drawable_p">8dp</dimen>
+    <dimen name="df_rec_iv_city_height">40dp</dimen>
+    <dimen name="df_rec_iv_city_width">40dp</dimen>
+    <dimen name="df_rec_arrival_m_top">30dp</dimen>
+    <dimen name="df_rec_arrival_text_m_left">8dp</dimen>
+    <dimen name="df_rec_arrival_item_m_top">16dp</dimen>
+    <dimen name="df_rec_divider_height">1dp</dimen>
+    <dimen name="df_rec_divider_m_top">8dp</dimen>
+
+
+    <!-- fragment_tickets -->
+    <dimen name="ft_tickets_container_p_hor">16dp</dimen>
+    <dimen name="ft_sr3_m_top">48dp</dimen>
+    <dimen name="ft_scroll_m_top">16dp</dimen>
+    <dimen name="ft_tv_back_p_vert">8dp</dimen>
+    <dimen name="ft_tv_back_p_hor">10dp</dimen>
+    <dimen name="ft_tv_drawable_p">8dp</dimen>
+    <dimen name="ft_tv_btn_m_left">8dp</dimen>
+    <dimen name="ft_ll_departure_p_start">10dp</dimen>
+    <dimen name="ft_ll_departure_p_top">8dp</dimen>
+    <dimen name="ft_ll_departure_p_right">10dp</dimen>
+    <dimen name="ft_ll_departure_p_bottom">8dp</dimen>
+    <dimen name="ft_tv_btn_padding_vert">8dp</dimen>
+    <dimen name="ft_tv_btn_padding_hor">10dp</dimen>
 </resources>

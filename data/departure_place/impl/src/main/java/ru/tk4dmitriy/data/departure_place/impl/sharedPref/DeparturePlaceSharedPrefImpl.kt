@@ -9,7 +9,7 @@ import javax.inject.Inject
 private const val SHARED_PREF_NAME = "AirfaresPref"
 private const val DEPARTURE_PLACE_KEY = "DEPARTURE_PLACE_KEY"
 
-class DeparturePlaceSharedPrefImpl @Inject constructor(
+internal class DeparturePlaceSharedPrefImpl @Inject constructor(
     private val context: Context
 ) : DeparturePlaceSharedPref {
     private val sharedPref: SharedPreferences by lazy {

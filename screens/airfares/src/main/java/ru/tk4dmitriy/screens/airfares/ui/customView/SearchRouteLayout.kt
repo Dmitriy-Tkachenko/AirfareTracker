@@ -6,31 +6,30 @@ import android.graphics.CornerPathEffect
 import android.graphics.Paint
 import android.os.Parcel
 import android.os.Parcelable
-import android.text.InputFilter
+import android.text.Editable
 import android.text.InputType
 import android.text.Spannable
 import android.text.SpannableString
-import android.text.Spanned
+import android.text.TextWatcher
 import android.text.style.ForegroundColorSpan
 import android.util.AttributeSet
-import android.util.Log
 import android.view.View
 import android.view.ViewGroup
 import android.widget.EditText
 import android.widget.ImageView
 import androidx.core.content.ContextCompat
 import androidx.core.content.withStyledAttributes
+import ru.tk4dmitriy.core.utils.Utils.filterText
 import ru.tk4dmitriy.screens.airfares.R
 import ru.tk4dmitriy.core.res.R as CoreResR
 
-
-class SearchRoutLayout @JvmOverloads constructor(
+internal class SearchRouteLayout @JvmOverloads constructor(
     context: Context,
     attrs: AttributeSet? = null
 ): ViewGroup(context, attrs) {
     private val basePaint: Paint by lazy {
         Paint(Paint.ANTI_ALIAS_FLAG).apply {
-            val cornerRadius = resources.getDimension(R.dimen.base_corner_radius)
+            val cornerRadius = resources.getDimension(R.dimen.sr_base_corner_radius)
             pathEffect = CornerPathEffect(cornerRadius)
         }
     }
@@ -44,14 +43,33 @@ class SearchRoutLayout @JvmOverloads constructor(
         }
     }
 
+    private val EditText.textChangeListener: TextWatcher
+        get() = object : TextWatcher {
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
+
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
+
+            override fun afterTextChanged(s: Editable?) {
+                s?.let {
+                    val filteredText = it.toString().filterText()
+                    if (it.toString() != filteredText) {
+                        setText(filteredText)
+                        setSelection(filteredText.length)
+                    }
+                }
+            }
+        }
+
     val departureEditText: EditText by lazy {
-        EditText(context).applySettings(resources.getString(R.string.departure_hint)).apply {
-            allowOnlyCyrillic()
+        val hint = resources.getString(R.string.departure_hint)
+        EditText(context).applySettings(hint).apply {
+            addTextChangedListener(textChangeListener)
             id = R.id.et_departure
         }
     }
     val arrivalEditText: EditText by lazy {
-        EditText(context).applySettings(resources.getString(R.string.arrival_hint)).apply {
+        val hint = resources.getString(R.string.arrival_hint)
+        EditText(context).applySettings(hint).apply {
             isFocusableInTouchMode = false
             inputType = InputType.TYPE_NULL
             isClickable = true
@@ -107,32 +125,37 @@ class SearchRoutLayout @JvmOverloads constructor(
         measureChild(icSearch, widthMeasureSpec, heightMeasureSpec)
         measureChild(departureEditText, widthMeasureSpec, heightMeasureSpec)
 
-        val desiredEditTextWidth =
-            widthSpec - paddingLeft - paddingRight - icSearch.measuredWidth -
-                    resources.getDimensionPixelSize(R.dimen.m_right_edit_text)
+        val desiredEditTextWidth = run {
+            val marginLeft = resources.getDimensionPixelSize(R.dimen.sr_et_m_left)
+            val marginRight = resources.getDimensionPixelSize(R.dimen.sr_et_m_right)
+            widthSpec - paddingLeft - paddingRight - marginLeft- marginRight
+        }
 
         departureEditText.measure(
             MeasureSpec.makeMeasureSpec(desiredEditTextWidth, MeasureSpec.EXACTLY),
             heightMeasureSpec
         )
-
         arrivalEditText.measure(
             MeasureSpec.makeMeasureSpec(desiredEditTextWidth, MeasureSpec.EXACTLY),
             heightMeasureSpec
         )
 
-        val desiredWidth = paddingLeft + paddingRight + icSearch.measuredWidth + maxOf(
-            departureEditText.measuredWidth, arrivalEditText.measuredWidth
-        )
-        val desiredHeight = paddingTop + paddingBottom +
-                departureEditText.measuredHeight + arrivalEditText.measuredHeight
+        val desiredWidth = run {
+            val maxWidth = maxOf(departureEditText.measuredWidth, arrivalEditText.measuredWidth)
+            paddingLeft + paddingRight + icSearch.measuredWidth + maxWidth
+        }
+        val desiredHeight = run {
+            val marginTop = resources.getDimension(R.dimen.sr_et_m_top).toInt()
+            val marginBottom = resources.getDimension(R.dimen.sr_et_m_bottom).toInt()
+            paddingTop + paddingBottom + marginTop + marginBottom +
+                    departureEditText.measuredHeight + arrivalEditText.measuredHeight
+        }
 
         val measuredWidth = when (widthMode) {
             MeasureSpec.EXACTLY -> widthSpec
             MeasureSpec.AT_MOST -> minOf(widthSpec, desiredWidth)
             else -> desiredWidth
         }
-
         val measuredHeight = when (MeasureSpec.getMode(heightMeasureSpec)) {
             MeasureSpec.EXACTLY -> MeasureSpec.getSize(heightMeasureSpec)
             MeasureSpec.AT_MOST -> minOf(MeasureSpec.getSize(heightMeasureSpec), desiredHeight)
@@ -148,25 +171,44 @@ class SearchRoutLayout @JvmOverloads constructor(
         arrivalEditTextLayout()
     }
 
+    override fun onSaveInstanceState(): Parcelable {
+        return SavedState(super.onSaveInstanceState()).apply {
+            baseColor = this@SearchRouteLayout.baseColor
+            lineColor = this@SearchRouteLayout.lineColor
+            icSearchColor = this@SearchRouteLayout.icSearchColor
+        }
+    }
+
+    override fun onRestoreInstanceState(state: Parcelable?) {
+        if (state is SavedState) {
+            super.onRestoreInstanceState(state.superState)
+            baseColor = state.baseColor
+            lineColor = state.lineColor
+            icSearchColor = state.icSearchColor
+        } else {
+            super.onRestoreInstanceState(state)
+        }
+    }
+
     private fun searchImageLayout() {
-        val left = resources.getDimension(R.dimen.m_left_search_image).toInt() + paddingLeft
-        val top = ((height + paddingTop - paddingBottom) / 2 - icSearch.measuredHeight / 2)
+        val left = resources.getDimension(R.dimen.sr_iv_search_m_left).toInt() + paddingLeft
+        val top = (height + paddingTop - paddingBottom) / 2 - icSearch.measuredHeight / 2
         val right = left + icSearch.measuredWidth
         val bottom = top + icSearch.measuredHeight
         icSearch.layout(left, top, right, bottom)
     }
 
     private fun departureEditTextLayout() {
-        val left = resources.getDimension(R.dimen.m_left_edit_text).toInt() + paddingLeft
-        val top = paddingTop
+        val left = resources.getDimension(R.dimen.sr_et_m_left).toInt() + paddingLeft
+        val top = (height + paddingTop - paddingBottom) / 2 - departureEditText.measuredHeight
         val right = left + departureEditText.measuredWidth
         val bottom = top + departureEditText.measuredHeight
         departureEditText.layout(left, top, right, bottom)
     }
 
     private fun arrivalEditTextLayout() {
-        val left = resources.getDimension(R.dimen.m_left_edit_text).toInt() + paddingLeft
-        val top = paddingTop + departureEditText.measuredHeight
+        val left = resources.getDimension(R.dimen.sr_et_m_left).toInt() + paddingLeft
+        val top = (height + paddingTop - paddingBottom) / 2
         val right = left + arrivalEditText.measuredWidth
         val bottom = top + arrivalEditText.measuredHeight
         arrivalEditText.layout(left, top, right, bottom)
@@ -187,63 +229,28 @@ class SearchRoutLayout @JvmOverloads constructor(
     }
 
     private fun lineDraw(canvas: Canvas) {
-        val left = resources.getDimension(R.dimen.m_left_line) + paddingLeft
-        val top = (height + paddingTop - paddingBottom) / 2 - resources.getDimension(R.dimen.height_line) / 2
-        val right = width - resources.getDimension(R.dimen.m_right_line) - paddingRight
-        val bottom = top + resources.getDimension(R.dimen.height_line)
+        val left = resources.getDimension(R.dimen.sr_line_m_left) + paddingLeft
+        val top = (height + paddingTop - paddingBottom) / 2 - resources.getDimension(R.dimen.sr_line_height) / 2
+        val right = width - resources.getDimension(R.dimen.sr_line_m_right) - paddingRight
+        val bottom = top + resources.getDimension(R.dimen.sr_line_height)
         canvas.drawRect(left, top, right, bottom, linePaint)
     }
 
     private fun EditText.applySettings(hint: String) = apply {
         val hintTextColor = ContextCompat.getColor(context, CoreResR.color.grey_6)
         val spannableString = SpannableString(hint)
-        spannableString.setSpan(ForegroundColorSpan(hintTextColor), 0, hint.length, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
+        spannableString.setSpan(
+            ForegroundColorSpan(hintTextColor),
+            0,
+            hint.length,
+            Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
+        )
         this.hint = spannableString
         isSingleLine = true
         background = null
         setTextAppearance(CoreResR.style.ButtonText1)
         setTextColor(ContextCompat.getColor(context, CoreResR.color.white))
     }
-
-    override fun onSaveInstanceState(): Parcelable {
-        return SavedState(super.onSaveInstanceState()).apply {
-            baseColor = this@SearchRoutLayout.baseColor
-            lineColor = this@SearchRoutLayout.lineColor
-            icSearchColor = this@SearchRoutLayout.icSearchColor
-        }
-    }
-
-    override fun onRestoreInstanceState(state: Parcelable?) {
-        if (state is SavedState) {
-            super.onRestoreInstanceState(state.superState)
-            baseColor = state.baseColor
-            lineColor = state.lineColor
-            icSearchColor = state.icSearchColor
-        } else {
-            super.onRestoreInstanceState(state)
-        }
-    }
-
-
-    private fun EditText.allowOnlyCyrillic() {
-        val filter = object : InputFilter {
-            override fun filter(
-                source: CharSequence?,
-                start: Int,
-                end: Int,
-                dest: Spanned?,
-                dstart: Int,
-                dend: Int
-            ): CharSequence? {
-                for (i in start until end)
-                    if (!Character.UnicodeBlock.of(source!![i])?.equals(Character.UnicodeBlock.CYRILLIC)!!)
-                        return ""
-                return null
-            }
-        }
-        this.filters = arrayOf(filter)
-    }
-
     private class SavedState : BaseSavedState {
         var baseColor = 0
         var lineColor = 0

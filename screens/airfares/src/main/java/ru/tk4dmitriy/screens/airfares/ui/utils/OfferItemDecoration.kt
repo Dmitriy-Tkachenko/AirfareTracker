@@ -13,7 +13,7 @@ internal class OfferItemDecoration : RecyclerView.ItemDecoration() {
         val adapter = parent.adapter ?: return
 
         if (position != adapter.itemCount - 1) {
-            outRect.right = view.resources.getDimension(R.dimen.m_left_offer).toInt()
+            outRect.right = view.resources.getDimension(R.dimen.offer_m_left).toInt()
         }
     }
 }

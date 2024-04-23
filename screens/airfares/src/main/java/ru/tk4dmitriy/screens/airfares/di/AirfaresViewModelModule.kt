@@ -4,6 +4,7 @@ import androidx.lifecycle.ViewModel
 import dagger.Binds
 import dagger.Module
 import dagger.multibindings.IntoMap
+import ru.tk4dmitriy.core.utils.di.scopes.ScreenScope
 import ru.tk4dmitriy.core.utils.di.viewModel.ViewModelKey
 import ru.tk4dmitriy.screens.airfares.ui.AirfaresViewModel
 

@@ -6,7 +6,7 @@ import ru.tk4dmitriy.screens.airfares.api.AirfaresStarter
 import ru.tk4dmitriy.screens.airfares.starter.AirfaresStarterImpl
 
 @Module
-interface AirfaresStarterModule {
+internal interface AirfaresStarterModule {
     @Binds
     fun provideAirfaresStarter(airfaresStarterImpl: AirfaresStarterImpl): AirfaresStarter
 }

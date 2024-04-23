@@ -9,4 +9,5 @@ android {
 dependencies {
     implementation(projects.features.departurePlace.api)
     implementation(projects.features.offers.api)
+    implementation(libs.androidx.fragment.ktx)
 }
