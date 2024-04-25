@@ -23,4 +23,5 @@
     <string name="btn_filter">фильтры</string>
     <string name="title_offer_ticket">Прямые рельсы</string>
     <string name="desc_right_arrow">Стрелка вправо</string>
+    <string name="title_btn_see_all_tickets">Посмотреть все билеты</string>
 </resources>

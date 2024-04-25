@@ -14,6 +14,7 @@ import kotlinx.coroutines.flow.onEach
 import ru.tk4dmitriy.core.utils.Utils.formatDate
 import ru.tk4dmitriy.core.utils.Utils.getCurrentDate
 import ru.tk4dmitriy.core.utils.ui.DatePickerHelper
+import ru.tk4dmitriy.screens.airfares.R
 import ru.tk4dmitriy.screens.airfares.databinding.FragmentOffersTicketsBinding
 import ru.tk4dmitriy.screens.airfares.di.AirfaresComponentHolder
 import ru.tk4dmitriy.screens.airfares.ui.AirfaresViewModel
@@ -62,6 +63,10 @@ internal class OffersTicketsFragment : Fragment() {
         DatePickerHelper.showDatePickerDialog(requireActivity(), departureDatePickerListener)
     }
 
+    private val btnSeeAllTicketsClickListener = OnClickListener {
+        openAllTicketsFragment()
+    }
+
     private var departure = ""
     private var arrival = ""
 
@@ -102,6 +107,7 @@ internal class OffersTicketsFragment : Fragment() {
                 adapter = this@OffersTicketsFragment.adapter
                 addItemDecoration(OfferTicketItemDecoration(requireActivity()))
             }
+            btnSeeAllTickets.setOnClickListener(btnSeeAllTicketsClickListener)
         }
         offersTicketsLaunch()
     }
@@ -112,6 +118,13 @@ internal class OffersTicketsFragment : Fragment() {
                 OfferTicketDelegateItem(id = offerTicket.id, value = offerTicket)
             })
         }.launchIn(lifecycleScope)
+    }
+
+    private fun openAllTicketsFragment() {
+        parentFragmentManager.beginTransaction()
+            .addToBackStack(null)
+            .replace(R.id.fragment_container, AllTicketsFragment(), "ALL_TICKETS_FRAGMENT")
+            .commit()
     }
 
     companion object {

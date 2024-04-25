@@ -61,7 +61,9 @@
         <item name="android:background">@drawable/bg_bottom_sheet</item>
     </style>
 
-    <style name="ButtonStyle" parent="Widget.MaterialComponents.Button">
-        <item name="background">@color/grey_6</item>
+    <style name="MySwitch" parent="Theme.AppCompat.DayNight">
+        <item name="colorControlActivated">@color/blue</item>
+        <item name="colorSwitchThumbNormal">@color/white</item>
+        <item name="android:colorForeground">@color/grey_5</item>
     </style>
 </resources>
