@@ -21,4 +21,6 @@
     <string name="ft_btn_back">обратно</string>
     <string name="desc_back">Обратно</string>
     <string name="btn_filter">фильтры</string>
+    <string name="title_offer_ticket">Прямые рельсы</string>
+    <string name="desc_right_arrow">Стрелка вправо</string>
 </resources>

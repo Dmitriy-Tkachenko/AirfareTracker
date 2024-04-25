@@ -19,7 +19,6 @@ internal class OffersDelegate : AdapterDelegate {
                 false
             )
         )
-
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, item: DelegateItem) {
         (holder as ViewHolder).bind(item.content() as OfferUi)
     }

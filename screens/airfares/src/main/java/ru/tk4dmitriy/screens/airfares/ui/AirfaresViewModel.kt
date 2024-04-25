@@ -18,15 +18,18 @@ import ru.tk4dmitriy.core.utils.Utils.formatNumberByDigits
 import ru.tk4dmitriy.feature.offers.api.GetOffersFeatureCase
 import ru.tk4dmitriy.features.departure_place.api.GetDeparturePlaceFeatureCase
 import ru.tk4dmitriy.features.departure_place.api.SaveDeparturePlaceFeatureCase
+import ru.tk4dmitriy.features.offers_tickets.api.GetOffersTicketsFeatureCase
 import ru.tk4dmitriy.screens.airfares.R
 import ru.tk4dmitriy.screens.airfares.di.AirfaresComponentHolder
+import ru.tk4dmitriy.screens.airfares.ui.models.OfferTicketUi
 import ru.tk4dmitriy.screens.airfares.ui.models.OfferUi
 import javax.inject.Inject
 
 internal class AirfaresViewModel @Inject constructor(
     private val saveDeparturePlaceFeatureCase: SaveDeparturePlaceFeatureCase,
     private val getDeparturePlaceFeatureCase: GetDeparturePlaceFeatureCase,
-    private val getOffersFeatureCase: GetOffersFeatureCase
+    private val getOffersFeatureCase: GetOffersFeatureCase,
+    private val getOffersTicketsFeatureCase: GetOffersTicketsFeatureCase,
 ) : ViewModel() {
     private val saveDeparturePlaceState: MutableSharedFlow<String> = MutableSharedFlow()
     private val _departurePlaceState: MutableStateFlow<String> = MutableStateFlow("")
@@ -34,6 +37,10 @@ internal class AirfaresViewModel @Inject constructor(
 
     private val _offersState: MutableStateFlow<List<OfferUi>> = MutableStateFlow(emptyList())
     val offersState: StateFlow<List<OfferUi>> = _offersState.asStateFlow()
+
+    private val _offersTicketsState: MutableStateFlow<List<OfferTicketUi>> = MutableStateFlow(emptyList())
+    val offersTicketsState: StateFlow<List<OfferTicketUi>> = _offersTicketsState.asStateFlow()
+
 
     init {
         performSaveDeparturePlace()
@@ -44,6 +51,21 @@ internal class AirfaresViewModel @Inject constructor(
     fun saveDeparturePlace(str: String) {
         viewModelScope.launch {
             saveDeparturePlaceState.emit(str)
+        }
+    }
+
+    fun getOffersTickets() {
+        viewModelScope.launch {
+            getOffersTicketsFeatureCase().map {
+                OfferTicketUi(
+                    id = it.id,
+                    title = it.title,
+                    timeRange = it.timeRange.joinToString("  "),
+                    price = it.price.formatNumberByDigits()
+                )
+            }.apply {
+                _offersTicketsState.emit(this)
+            }
         }
     }
 
@@ -82,11 +104,5 @@ internal class AirfaresViewModel @Inject constructor(
                     emit(it)
                 }
             }.launchIn(viewModelScope)
-    }
-
-    override fun onCleared() {
-        super.onCleared()
-        AirfaresComponentHolder.reset()
-
     }
 }

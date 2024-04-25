@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:background="@color/grey_2">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@color/black">
+
+            <ru.tk4dmitriy.screens.airfares.ui.customView.SearchRoute3Layout
+                android:id="@+id/searchRoute"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingHorizontal="@dimen/ft_tickets_container_p_hor"
+                android:layout_marginTop="@dimen/ft_sr3_m_top"/>
+
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/ft_scroll_m_top"
+                android:scrollbars="none">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/btn_return_ticket"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:minHeight="0dp"
+                        android:paddingVertical="@dimen/ft_tv_back_p_vert"
+                        android:paddingHorizontal="@dimen/ft_tv_back_p_hor"
+                        android:textAllCaps="false"
+                        android:textColor="@color/white"
+                        android:includeFontPadding="false"
+                        android:background="@drawable/rounded_btn"
+                        android:drawablePadding="@dimen/ft_tv_drawable_p"
+                        android:text="@string/ft_btn_back"
+                        app:drawableLeftCompat="@drawable/ic_plus"
+                        tools:drawableStart="@drawable/ic_plus"
+                        style="@style/Title4"/>
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/btn_departure_date"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:minHeight="0dp"
+                        android:layout_marginStart="@dimen/ft_tv_btn_m_left"
+                        android:paddingVertical="@dimen/ft_tv_btn_padding_vert"
+                        android:paddingHorizontal="@dimen/ft_tv_btn_padding_hor"
+                        android:textAllCaps="false"
+                        android:textColor="@color/white"
+                        android:includeFontPadding="false"
+                        android:background="@drawable/rounded_btn"
+                        android:text="24 фев, сб"
+                        style="@style/Title4" />
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:minHeight="0dp"
+                        android:layout_marginStart="@dimen/ft_tv_btn_m_left"
+                        android:paddingVertical="@dimen/ft_tv_btn_padding_vert"
+                        android:paddingHorizontal="@dimen/ft_tv_btn_padding_hor"
+                        android:textAllCaps="false"
+                        android:textColor="@color/white"
+                        android:includeFontPadding="false"
+                        android:background="@drawable/rounded_btn"
+                        android:drawablePadding="@dimen/ft_tv_drawable_p"
+                        android:text="1,эконом"
+                        app:drawableLeftCompat="@drawable/ic_passenger"
+                        tools:drawableStart="@drawable/ic_passenger"
+                        style="@style/Title4" />
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:minHeight="0dp"
+                        android:layout_marginStart="@dimen/ft_tv_btn_m_left"
+                        android:paddingVertical="@dimen/ft_tv_btn_padding_vert"
+                        android:paddingHorizontal="@dimen/ft_tv_btn_padding_hor"
+                        android:textAllCaps="false"
+                        android:textColor="@color/white"
+                        android:includeFontPadding="false"
+                        android:background="@drawable/rounded_btn"
+                        android:drawablePadding="@dimen/ft_tv_drawable_p"
+                        android:text="@string/btn_filter"
+                        app:drawableLeftCompat="@drawable/ic_filter"
+                        tools:drawableStart="@drawable/ic_filter"
+                        style="@style/Title4"/>
+
+                </LinearLayout>
+
+            </HorizontalScrollView>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginTop="16dp"
+                android:orientation="vertical"
+                android:background="@drawable/rounded_bg_grey_1">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginStart="16dp"
+                    android:textColor="@color/white"
+                    android:text="@string/title_offer_ticket"
+                    style="@style/Title2"/>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_offers_tickets"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

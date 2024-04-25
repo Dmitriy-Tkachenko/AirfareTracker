@@ -39,7 +39,7 @@
                 android:layout_marginTop="@dimen/fa_search_container_m_top"
                 android:paddingHorizontal="@dimen/fa_search_container_p_hor"
                 android:paddingVertical="@dimen/fa_search_container_p_vert"
-                android:background="@drawable/rounded_bg">
+                android:background="@drawable/rounded_bg_grey_3">
 
                 <ru.tk4dmitriy.screens.airfares.ui.customView.SearchRouteLayout
                     android:id="@+id/search_rout"

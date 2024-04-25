@@ -17,7 +17,7 @@ import ru.tk4dmitriy.screens.airfares.databinding.FragmentAirfaresBinding
 import ru.tk4dmitriy.screens.airfares.di.AirfaresComponentHolder
 import ru.tk4dmitriy.screens.airfares.ui.AirfaresViewModel
 import ru.tk4dmitriy.screens.airfares.ui.adapter.OfferDelegateItem
-import ru.tk4dmitriy.screens.airfares.ui.adapter.OffersAdapter
+import ru.tk4dmitriy.screens.airfares.ui.adapter.GlobalAdapter
 import ru.tk4dmitriy.screens.airfares.ui.adapter.OffersDelegate
 import ru.tk4dmitriy.screens.airfares.ui.utils.OfferItemDecoration
 import javax.inject.Inject
@@ -49,8 +49,8 @@ internal class AirfaresFragment : Fragment(), ArrivalDialogFragment.Callback {
         }
     }
 
-    private val offersAdapter: OffersAdapter by lazy(LazyThreadSafetyMode.NONE) {
-        OffersAdapter()
+    private val adapter: GlobalAdapter by lazy(LazyThreadSafetyMode.NONE) {
+        GlobalAdapter()
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -74,12 +74,12 @@ internal class AirfaresFragment : Fragment(), ArrivalDialogFragment.Callback {
                 .newInstance(binding.searchRout.departureEditText.text.toString())
                 .show(childFragmentManager, ARRIVAL_DIALOG_FRAGMENT_TAG)
         }
-        offersAdapter.apply {
+        adapter.apply {
             addDelegate(OffersDelegate())
         }
         binding.rvOffers.apply {
             layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
-            adapter = offersAdapter
+            adapter = this@AirfaresFragment.adapter
             addItemDecoration(OfferItemDecoration())
         }
 
@@ -95,7 +95,7 @@ internal class AirfaresFragment : Fragment(), ArrivalDialogFragment.Callback {
 
     private fun offersStateLaunch() {
         viewModel.offersState.onEach {
-            offersAdapter.submitList(it.map { offer ->
+            adapter.submitList(it.map { offer ->
                 OfferDelegateItem(id = offer.id, value = offer)
             })
         }.launchIn(lifecycleScope)
@@ -132,7 +132,7 @@ internal class AirfaresFragment : Fragment(), ArrivalDialogFragment.Callback {
         arrivalDialogDismiss()
         parentFragmentManager
             .beginTransaction()
-            .replace(R.id.fragment_container, TicketsFragment.newInstance(
+            .replace(R.id.fragment_container, OffersTicketsFragment.newInstance(
                 binding.searchRout.departureEditText.text.toString(),
                 arrival
             ), TICKETS_FRAGMENT_TAG)

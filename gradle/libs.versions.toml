@@ -24,6 +24,9 @@ compileSdk = "34"
 minSdk = "24"
 targetSdk = "34"
 jvm = "17"
+junit = "4.13.2"
+junitVersion = "1.1.5"
+espressoCore = "3.5.1"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "androidx-core-ktx" }
@@ -45,6 +48,9 @@ squareup-leakcanary = { module="com.squareup.leakcanary:leakcanary-android", ver
 # project internal convention plugin
 android-gradle-plugin = { group = "com.android.tools.build", name = "gradle", version.ref = "agp" }
 kotlin-gradle-plugin = { group = "org.jetbrains.kotlin", name = "kotlin-gradle-plugin", version.ref = "jetbrains-kotlin" }
+junit = { group = "junit", name = "junit", version.ref = "junit" }
+androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
+androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

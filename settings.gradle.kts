@@ -1,5 +1,17 @@
 @file:Suppress("UnstableApiUsage")
 
+include(":data:offers_tickets:impl")
+
+
+include(":data:offers_tickets:api")
+
+
+include(":features:offers_tickets:impl")
+
+
+include(":features:offers_tickets:api")
+
+
 enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
 
 pluginManagement {

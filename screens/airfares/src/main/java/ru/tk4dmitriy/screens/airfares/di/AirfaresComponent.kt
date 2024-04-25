@@ -6,6 +6,7 @@ import ru.tk4dmitriy.core.utils.di.scopes.ScreenScope
 import ru.tk4dmitriy.screens.airfares.ui.fragments.AirfaresFragment
 import ru.tk4dmitriy.screens.airfares.api.AirfaresScreenApi
 import ru.tk4dmitriy.screens.airfares.ui.fragments.ArrivalDialogFragment
+import ru.tk4dmitriy.screens.airfares.ui.fragments.OffersTicketsFragment
 
 @ScreenScope
 @Component(
@@ -18,6 +19,7 @@ import ru.tk4dmitriy.screens.airfares.ui.fragments.ArrivalDialogFragment
 internal abstract class AirfaresComponent : AirfaresScreenApi {
     abstract fun inject(fragment: AirfaresFragment)
     abstract fun inject(dialogFragment: ArrivalDialogFragment)
+    abstract fun inject(offersTicketsFragment: OffersTicketsFragment)
 
     companion object {
         fun initAndGet(dependencies: AirfaresComponentDependencies): AirfaresComponent {

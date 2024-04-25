@@ -40,6 +40,18 @@
     <!-- OfferItemDecoration -->
     <dimen name="offer_m_left">16dp</dimen>
 
+
+    <!-- OfferTicketItemDecoration -->
+    <dimen name="offer_ticket_m_top">8dp</dimen>
+    <dimen name="offer_ticket_m_left">16dp</dimen>
+    <dimen name="offer_ticket_m_right">16dp</dimen>
+    <dimen name="offer_ticket_m_bottom">10dp</dimen>
+    <dimen name="offer_ticket_last_m_bottom">26dp</dimen>
+    <dimen name="offer_ticket_line_height">1dp</dimen>
+    <dimen name="offer_ticket_line_m_left">16dp</dimen>
+    <dimen name="offer_ticket_line_m_right">16dp</dimen>
+    <dimen name="offer_ticket_line_m_bottom">10dp</dimen>
+
     <!-- SearchRout2Layout -->
     <dimen name="sr2_et_m_left">16dp</dimen>
     <dimen name="sr2_et_m_top">8dp</dimen>

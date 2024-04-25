@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.RecyclerView
 import ru.tk4dmitriy.core.utils.ui.delegateAdapter.AdapterDelegate
 import ru.tk4dmitriy.core.utils.ui.delegateAdapter.DelegateItem
 
-internal class OffersAdapter : ListAdapter<DelegateItem, RecyclerView.ViewHolder>(DelegateAdapterItemCallback()) {
+internal class GlobalAdapter : ListAdapter<DelegateItem, RecyclerView.ViewHolder>(DelegateAdapterItemCallback()) {
     private val delegates: MutableList<AdapterDelegate> = mutableListOf()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder =
