@@ -55,6 +55,19 @@ internal class SearchRoute3Layout @JvmOverloads constructor(
         }
     }
 
+    private val departureTouchListener = OnTouchListener { v, event ->
+        if (event?.action == MotionEvent.ACTION_UP &&
+            event.rawX >= arrivalEditText.right - arrivalEditText.getCompoundDrawables()[2]
+                .getBounds().width()
+        ) {
+            departureEditText.text = arrivalEditText.text.also {
+                arrivalEditText.text = departureEditText.text
+            }
+            return@OnTouchListener true
+        }
+        false
+    }
+
     private val arrivalTouchListener = OnTouchListener { v, event ->
         if (event?.action == MotionEvent.ACTION_UP &&
             event.rawX >= arrivalEditText.right - arrivalEditText.getCompoundDrawables()[2]
@@ -73,6 +86,7 @@ internal class SearchRoute3Layout @JvmOverloads constructor(
             inputType = InputType.TYPE_NULL
             isClickable = true
             setCompoundDrawablesRelativeWithIntrinsicBounds(null, null, icSwap.drawable, null)
+            setOnTouchListener(departureTouchListener)
             compoundDrawablePadding = resources.getDimension(R.dimen.sr3_et_compound_drawable_p).toInt()
         }
     }

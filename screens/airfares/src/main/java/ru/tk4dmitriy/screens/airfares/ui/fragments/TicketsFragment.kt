@@ -30,8 +30,11 @@ internal class TicketsFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.searchRoute.departureEditText.setText(departure)
-        binding.searchRoute.arrivalEditText.setText(arrival)
+        binding.apply {
+            searchRoute.departureEditText.setText(departure)
+            searchRoute.arrivalEditText.setText(arrival)
+
+        }
     }
 
     companion object {
