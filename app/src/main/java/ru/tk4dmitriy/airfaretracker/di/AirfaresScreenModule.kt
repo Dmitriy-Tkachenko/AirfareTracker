@@ -12,6 +12,9 @@ import ru.tk4dmitriy.data.offers.impl.di.OffersDataComponentDependencies
 import ru.tk4dmitriy.data.offers_tickets.api.OffersTicketsDataApi
 import ru.tk4dmitriy.data.offers_tickets.impl.di.OffersTicketsDataComponent
 import ru.tk4dmitriy.data.offers_tickets.impl.di.OffersTicketsDataComponentDependencies
+import ru.tk4dmitriy.data.tickets.api.TicketsDataApi
+import ru.tk4dmitriy.data.tickets.impl.di.TicketsDataComponent
+import ru.tk4dmitriy.data.tickets.impl.di.TicketsDataComponentDependencies
 import ru.tk4dmitriy.feature.offers.api.GetOffersFeatureCase
 import ru.tk4dmitriy.features.departure_place.api.GetDeparturePlaceFeatureCase
 import ru.tk4dmitriy.features.departure_place.api.SaveDeparturePlaceFeatureCase
@@ -20,6 +23,8 @@ import ru.tk4dmitriy.features.departure_place.impl.SaveDeparturePlaceFeatureCase
 import ru.tk4dmitriy.features.offers.impl.GetOffersFeatureCaseImpl
 import ru.tk4dmitriy.features.offers_tickets.api.GetOffersTicketsFeatureCase
 import ru.tk4dmitriy.features.offers_tickets.impl.GetOffersTicketsFeatureCaseImpl
+import ru.tk4dmitriy.features.tickets.api.GetTicketsFeatureCase
+import ru.tk4dmitriy.features.tickets.impl.GetTicketsFeatureCaseImpl
 import ru.tk4dmitriy.screens.airfares.api.AirfaresScreenApi
 import ru.tk4dmitriy.screens.airfares.di.AirfaresComponentDependencies
 import ru.tk4dmitriy.screens.airfares.di.AirfaresComponentHolder
@@ -76,12 +81,29 @@ class AirfaresScreenModule {
         return OffersTicketsDataComponent.initAndGet(dependencies)
     }
 
+    @Provides
+    fun provideTicketsDataComponentDependencies(
+        context: Context
+    ): TicketsDataComponentDependencies {
+        return object : TicketsDataComponentDependencies {
+            override fun getContext(): Context = context
+        }
+    }
+
+    @Provides
+    fun provideTicketsDataComponent(
+        dependencies: TicketsDataComponentDependencies
+    ): TicketsDataApi {
+        return TicketsDataComponent.initAndGet(dependencies)
+    }
+
     @Singleton
     @Provides
     fun provideAirfaresDependencies(
         departurePlaceDataApi: DeparturePlaceDataApi,
         offersDataApi: OffersDataApi,
         offersTicketsDataApi: OffersTicketsDataApi,
+        ticketsDataApi: TicketsDataApi,
     ): AirfaresComponentDependencies {
         return object : AirfaresComponentDependencies {
             override fun saveDeparturePlaceFeatureCase(): SaveDeparturePlaceFeatureCase =
@@ -102,6 +124,11 @@ class AirfaresScreenModule {
             override fun getOffersTicketsFeatureCase(): GetOffersTicketsFeatureCase =
                 GetOffersTicketsFeatureCaseImpl(
                     offersTicketsDataApi.getOffersTicketsRepository()
+                )
+
+            override fun getTicketsFeatureCase(): GetTicketsFeatureCase =
+                GetTicketsFeatureCaseImpl(
+                    ticketsDataApi.getTicketsRepository()
                 )
         }
     }

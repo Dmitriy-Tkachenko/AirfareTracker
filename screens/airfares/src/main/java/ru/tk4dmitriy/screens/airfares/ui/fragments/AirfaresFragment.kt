@@ -16,9 +16,9 @@ import ru.tk4dmitriy.screens.airfares.R
 import ru.tk4dmitriy.screens.airfares.databinding.FragmentAirfaresBinding
 import ru.tk4dmitriy.screens.airfares.di.AirfaresComponentHolder
 import ru.tk4dmitriy.screens.airfares.ui.AirfaresViewModel
-import ru.tk4dmitriy.screens.airfares.ui.adapter.OfferDelegateItem
+import ru.tk4dmitriy.screens.airfares.ui.adapter.offers.OfferDelegateItem
 import ru.tk4dmitriy.screens.airfares.ui.adapter.GlobalAdapter
-import ru.tk4dmitriy.screens.airfares.ui.adapter.OffersDelegate
+import ru.tk4dmitriy.screens.airfares.ui.adapter.offers.OffersDelegate
 import ru.tk4dmitriy.screens.airfares.ui.utils.OfferItemDecoration
 import javax.inject.Inject
 

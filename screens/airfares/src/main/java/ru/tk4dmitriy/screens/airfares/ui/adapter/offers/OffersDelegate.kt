@@ -1,4 +1,4 @@
-package ru.tk4dmitriy.screens.airfares.ui.adapter
+package ru.tk4dmitriy.screens.airfares.ui.adapter.offers
 
 import android.view.LayoutInflater
 import android.view.ViewGroup

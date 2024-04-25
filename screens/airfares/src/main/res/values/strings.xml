@@ -6,7 +6,8 @@
     <string name="arrival_hint">Куда - Турция</string>
     <string name="price_prefix">от</string>
     <string name="ruble">₽</string>
-    
+    <string name="hours_on_the_road">ч в пути</string>
+
     <string name="desc_airplane">Airplane</string>
     <string name="desc_bottom_sheet">BottomSheet</string>
     <string name="title_difficult_rout">Сложный\nмаршрут</string>

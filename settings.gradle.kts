@@ -1,5 +1,17 @@
 @file:Suppress("UnstableApiUsage")
 
+include(":data:tickets:impl")
+
+
+include(":data:tickets:api")
+
+
+include(":features:tickets:impl")
+
+
+include(":features:tickets:api")
+
+
 include(":data:offers_tickets:impl")
 
 

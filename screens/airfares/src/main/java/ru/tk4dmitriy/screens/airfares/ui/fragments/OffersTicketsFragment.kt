@@ -19,8 +19,8 @@ import ru.tk4dmitriy.screens.airfares.databinding.FragmentOffersTicketsBinding
 import ru.tk4dmitriy.screens.airfares.di.AirfaresComponentHolder
 import ru.tk4dmitriy.screens.airfares.ui.AirfaresViewModel
 import ru.tk4dmitriy.screens.airfares.ui.adapter.GlobalAdapter
-import ru.tk4dmitriy.screens.airfares.ui.adapter.OfferTicketDelegateItem
-import ru.tk4dmitriy.screens.airfares.ui.adapter.OffersTicketsDelegate
+import ru.tk4dmitriy.screens.airfares.ui.adapter.offers_tickets.OfferTicketDelegateItem
+import ru.tk4dmitriy.screens.airfares.ui.adapter.offers_tickets.OffersTicketsDelegate
 import ru.tk4dmitriy.screens.airfares.ui.utils.OfferTicketItemDecoration
 import java.util.Date
 import javax.inject.Inject
@@ -123,7 +123,12 @@ internal class OffersTicketsFragment : Fragment() {
     private fun openAllTicketsFragment() {
         parentFragmentManager.beginTransaction()
             .addToBackStack(null)
-            .replace(R.id.fragment_container, AllTicketsFragment(), "ALL_TICKETS_FRAGMENT")
+            .replace(R.id.fragment_container, TicketsFragment.newInstance(
+                departure = departure,
+                arrival = arrival,
+                departureDate = binding.btnDepartureDate.text.toString(),
+                numberPassenger = binding.btnPassengers.text.toString()
+            ), "ALL_TICKETS_FRAGMENT")
             .commit()
     }
 

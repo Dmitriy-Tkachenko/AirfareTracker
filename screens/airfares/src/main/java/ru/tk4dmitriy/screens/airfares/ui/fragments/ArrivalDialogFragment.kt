@@ -10,7 +10,6 @@ import android.view.ViewGroup
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import ru.tk4dmitriy.screens.airfares.databinding.DialogFragmentArrivalBinding
 
-
 internal class ArrivalDialogFragment : BottomSheetDialogFragment() {
     interface Callback {
         fun clickOnDifficultRout()

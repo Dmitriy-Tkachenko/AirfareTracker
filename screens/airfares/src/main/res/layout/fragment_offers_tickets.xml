@@ -70,6 +70,7 @@
                         style="@style/Title4" />
 
                     <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/btn_passengers"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:minHeight="0dp"

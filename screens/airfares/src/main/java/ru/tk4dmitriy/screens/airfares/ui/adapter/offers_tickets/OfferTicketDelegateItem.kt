@@ -1,4 +1,4 @@
-package ru.tk4dmitriy.screens.airfares.ui.adapter
+package ru.tk4dmitriy.screens.airfares.ui.adapter.offers_tickets
 
 import ru.tk4dmitriy.core.utils.ui.delegateAdapter.DelegateItem
 import ru.tk4dmitriy.screens.airfares.ui.models.OfferTicketUi

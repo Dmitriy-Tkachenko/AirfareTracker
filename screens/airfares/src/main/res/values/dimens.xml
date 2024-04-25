@@ -52,6 +52,9 @@
     <dimen name="offer_ticket_line_m_right">16dp</dimen>
     <dimen name="offer_ticket_line_m_bottom">10dp</dimen>
 
+    <!-- TicketItemDecoration -->
+    <dimen name="ticket_m_top">16dp</dimen>
+
     <!-- SearchRout2Layout -->
     <dimen name="sr2_et_m_left">16dp</dimen>
     <dimen name="sr2_et_m_top">8dp</dimen>

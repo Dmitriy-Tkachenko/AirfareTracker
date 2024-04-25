@@ -1,8 +1,7 @@
-package ru.tk4dmitriy.screens.airfares.ui.adapter
+package ru.tk4dmitriy.screens.airfares.ui.adapter.offers_tickets
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import android.widget.ImageView
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import ru.tk4dmitriy.core.utils.ui.delegateAdapter.AdapterDelegate

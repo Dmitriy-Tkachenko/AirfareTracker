@@ -14,15 +14,20 @@ import kotlinx.coroutines.flow.flatMapLatest
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.launch
+import ru.tk4dmitriy.core.utils.Utils
+import ru.tk4dmitriy.core.utils.Utils.calculateTravelTime
 import ru.tk4dmitriy.core.utils.Utils.formatNumberByDigits
+import ru.tk4dmitriy.core.utils.Utils.formatStringDateToTime
 import ru.tk4dmitriy.feature.offers.api.GetOffersFeatureCase
 import ru.tk4dmitriy.features.departure_place.api.GetDeparturePlaceFeatureCase
 import ru.tk4dmitriy.features.departure_place.api.SaveDeparturePlaceFeatureCase
 import ru.tk4dmitriy.features.offers_tickets.api.GetOffersTicketsFeatureCase
+import ru.tk4dmitriy.features.tickets.api.GetTicketsFeatureCase
 import ru.tk4dmitriy.screens.airfares.R
 import ru.tk4dmitriy.screens.airfares.di.AirfaresComponentHolder
 import ru.tk4dmitriy.screens.airfares.ui.models.OfferTicketUi
 import ru.tk4dmitriy.screens.airfares.ui.models.OfferUi
+import ru.tk4dmitriy.screens.airfares.ui.models.TicketUi
 import javax.inject.Inject
 
 internal class AirfaresViewModel @Inject constructor(
@@ -30,6 +35,7 @@ internal class AirfaresViewModel @Inject constructor(
     private val getDeparturePlaceFeatureCase: GetDeparturePlaceFeatureCase,
     private val getOffersFeatureCase: GetOffersFeatureCase,
     private val getOffersTicketsFeatureCase: GetOffersTicketsFeatureCase,
+    private val getTicketsFeatureCase: GetTicketsFeatureCase,
 ) : ViewModel() {
     private val saveDeparturePlaceState: MutableSharedFlow<String> = MutableSharedFlow()
     private val _departurePlaceState: MutableStateFlow<String> = MutableStateFlow("")
@@ -40,6 +46,9 @@ internal class AirfaresViewModel @Inject constructor(
 
     private val _offersTicketsState: MutableStateFlow<List<OfferTicketUi>> = MutableStateFlow(emptyList())
     val offersTicketsState: StateFlow<List<OfferTicketUi>> = _offersTicketsState.asStateFlow()
+
+    private val _ticketsState: MutableStateFlow<List<TicketUi>> = MutableStateFlow(emptyList())
+    val ticketsState: StateFlow<List<TicketUi>> = _ticketsState.asStateFlow()
 
 
     init {
@@ -65,6 +74,28 @@ internal class AirfaresViewModel @Inject constructor(
                 )
             }.apply {
                 _offersTicketsState.emit(this)
+            }
+        }
+    }
+
+    fun getTickets() {
+        viewModelScope.launch {
+            getTicketsFeatureCase().map {
+                val departureTime = it.departureDate.formatStringDateToTime()
+                val arrivalTime = it.arrivalDate.formatStringDateToTime()
+                TicketUi(
+                    id = it.id,
+                    badge = it.badge,
+                    price = it.price.formatNumberByDigits(),
+                    departureTime = departureTime,
+                    departureAirport = it.departureAirport,
+                    arrivalTime = arrivalTime,
+                    arrivalAirport = it.arrivalAirport,
+                    hasTransfer = it.hasTransfer,
+                    travelTime = calculateTravelTime(departureTime, arrivalTime)
+                )
+            }.apply {
+                _ticketsState.emit(this)
             }
         }
     }
