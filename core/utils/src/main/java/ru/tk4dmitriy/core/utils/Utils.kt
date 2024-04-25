@@ -1,6 +1,9 @@
 package ru.tk4dmitriy.core.utils
 
 import android.content.res.AssetManager
+import android.icu.text.SimpleDateFormat
+import java.util.Date
+import java.util.Locale
 
 object Utils {
     fun Int.formatNumberByDigits(): String {
@@ -35,4 +38,7 @@ object Utils {
             .replace("--+".toRegex(), "-")
 
     }
+
+    fun Date.formatDate(pattern: String): String =
+        SimpleDateFormat(pattern, Locale.getDefault()).format(this)
 }
