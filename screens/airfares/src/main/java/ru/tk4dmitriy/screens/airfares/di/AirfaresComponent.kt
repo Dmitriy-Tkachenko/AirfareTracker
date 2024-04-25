@@ -13,7 +13,6 @@ import ru.tk4dmitriy.screens.airfares.ui.fragments.TicketsFragment
 @Component(
     dependencies = [AirfaresComponentDependencies::class],
     modules = [
-        AirfaresStarterModule::class,
         AirfaresViewModelModule::class,
         ViewModelModule::class]
 )

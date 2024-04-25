@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/nav_graph_airfares">
+
+
+    <navigation
+        android:id="@+id/nav_graph_airfares"
+        app:startDestination="@id/tab_airfares">
+
+        <fragment
+            android:id="@+id/tab_airfares"
+            android:name="ru.tk4dmitriy.screens.airfares.ui.fragments.AirfaresFragment"
+            android:label="AirfaresFragment">
+
+            <action
+                android:id="@+id/action_airfaresFragment_to_arrivalDialogFragment"
+                app:destination="@id/arrivalDialogFragment" />
+        </fragment>
+
+        <dialog
+            android:id="@+id/arrivalDialogFragment"
+            android:name="ru.tk4dmitriy.screens.airfares.ui.fragments.ArrivalDialogFragment"
+            android:label="BottomSheetDialogFragment">
+
+            <action
+                android:id="@+id/action_arrivalDialogFragment_to_difficultRoutFragment"
+                app:destination="@id/difficultFragment" />
+
+            <action
+                android:id="@+id/action_arrivalDialogFragment_to_weekendFragment"
+                app:destination="@id/weekendFragment" />
+
+            <action
+                android:id="@+id/action_arrivalDialogFragment_to_hotTicketsFragment"
+                app:destination="@id/hotTicketsFragment" />
+
+            <action
+                android:id="@+id/action_arrivalDialogFragment_to_offersTicketsFragment"
+                app:destination="@id/offersTicketsFragment" />
+
+        </dialog>
+
+        <fragment
+            android:id="@+id/difficultFragment"
+            android:name="ru.tk4dmitriy.screens.airfares.ui.fragments.DifficultRoutFragment"
+            android:label="DifficultRoutFragment" />
+
+        <fragment
+            android:id="@+id/weekendFragment"
+            android:name="ru.tk4dmitriy.screens.airfares.ui.fragments.WeekendFragment"
+            android:label="WeekendFragment" />
+
+        <fragment
+            android:id="@+id/hotTicketsFragment"
+            android:name="ru.tk4dmitriy.screens.airfares.ui.fragments.HotTicketsFragment"
+            android:label="HotTicketsFragment" />
+
+        <fragment
+            android:id="@+id/offersTicketsFragment"
+            android:name="ru.tk4dmitriy.screens.airfares.ui.fragments.OffersTicketsFragment"
+            android:label="OffersTicketsFragment" >
+
+            <action
+                android:id="@+id/action_offersTicketsFragment_to_ticketsFragment"
+                app:destination="@id/ticketsFragment" />
+        </fragment>
+
+        <fragment
+            android:id="@+id/ticketsFragment"
+            android:name="ru.tk4dmitriy.screens.airfares.ui.fragments.TicketsFragment"
+            android:label="TicketsFragment" />
+    </navigation>
+
+    <fragment
+        android:id="@+id/tab_hotels"
+        android:name="ru.tk4dmitriy.screens.hotels.HotelsFragment"
+        android:label="HotelsFragment" />
+
+    <fragment
+        android:id="@+id/tab_closer"
+        android:name="ru.tk4dmitriy.screens.closer.CloserFragment"
+        android:label="CloserFragment" />
+    <fragment
+        android:id="@+id/tab_subscriptions"
+        android:name="ru.tk4dmitriy.screens.subscriptions.SubscriptionsFragment"
+        android:label="SubscriptionsFragment" />
+    <fragment
+        android:id="@+id/tab_profile"
+        android:name="ru.tk4dmitriy.screens.profile.ProfileFragment"
+        android:label="ProfileFragment" />
+</navigation>

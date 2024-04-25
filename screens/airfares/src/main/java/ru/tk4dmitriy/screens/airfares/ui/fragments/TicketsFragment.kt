@@ -60,6 +60,7 @@ internal class TicketsFragment : Fragment() {
 
         arguments?.let {
             departure = it.getString(DEPARTURE_KEY) ?: ""
+            arrival = it.getString(ARRIVAL_KEY) ?: ""
             departureDate = it.getString(DEPARTURE_DATE_KEY) ?: ""
             numberPassenger = it.getString(NUMBER_PASSENGER_KEY) ?: ""
         }
@@ -80,6 +81,9 @@ internal class TicketsFragment : Fragment() {
                 adapter = this@TicketsFragment.adapter
                 addItemDecoration(TicketItemDecoration())
             }
+            ivBack.setOnClickListener {
+                requireActivity().supportFragmentManager.popBackStack()
+            }
         }
         ticketsLaunch()
     }
@@ -93,25 +97,9 @@ internal class TicketsFragment : Fragment() {
     }
 
     companion object {
-        private const val DEPARTURE_KEY = "DEPARTURE_KEY"
-        private const val ARRIVAL_KEY = "ARRIVAL_KEY"
-        private const val DEPARTURE_DATE_KEY = "DEPARTURE_DATE_KEY"
-        private const val NUMBER_PASSENGER_KEY = "NUMBER_PASSENGER_KEY"
-        fun newInstance(
-            departure: String,
-            arrival: String,
-            departureDate: String,
-            numberPassenger: String,
-        ): TicketsFragment {
-            val args = Bundle().apply {
-                putString(DEPARTURE_KEY, departure)
-                putString(ARRIVAL_KEY, arrival)
-                putString(DEPARTURE_DATE_KEY, departureDate)
-                putString(NUMBER_PASSENGER_KEY, numberPassenger)
-            }
-            val fragment = TicketsFragment()
-            fragment.arguments = args
-            return fragment
-        }
+        const val DEPARTURE_KEY = "DEPARTURE_KEY"
+        const val ARRIVAL_KEY = "DEPARTURE_KEY"
+        const val DEPARTURE_DATE_KEY = "DEPARTURE_DATE_KEY"
+        const val NUMBER_PASSENGER_KEY = "NUMBER_PASSENGER_KEY"
     }
 }

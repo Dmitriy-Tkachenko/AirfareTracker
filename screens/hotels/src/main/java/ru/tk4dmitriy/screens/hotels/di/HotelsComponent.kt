@@ -5,8 +5,7 @@ import ru.tk4dmitriy.screens.hotels.HotelsFragment
 import ru.tk4dmitriy.screens.hotels.api.HotelsScreenApi
 
 @Component(
-    dependencies = [HotelsComponentDependencies::class],
-    modules = [HotelsStarterModule::class]
+    dependencies = [HotelsComponentDependencies::class]
 )
 internal abstract class HotelsComponent : HotelsScreenApi {
     abstract fun inject(fragment: HotelsFragment)

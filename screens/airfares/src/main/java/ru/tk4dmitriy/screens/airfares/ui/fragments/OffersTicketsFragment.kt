@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
@@ -108,6 +109,9 @@ internal class OffersTicketsFragment : Fragment() {
                 addItemDecoration(OfferTicketItemDecoration(requireActivity()))
             }
             btnSeeAllTickets.setOnClickListener(btnSeeAllTicketsClickListener)
+            binding.searchRoute.icBack.setOnClickListener {
+                requireActivity().supportFragmentManager.popBackStack()
+            }
         }
         offersTicketsLaunch()
     }
@@ -121,28 +125,17 @@ internal class OffersTicketsFragment : Fragment() {
     }
 
     private fun openAllTicketsFragment() {
-        parentFragmentManager.beginTransaction()
-            .addToBackStack(null)
-            .replace(R.id.fragment_container, TicketsFragment.newInstance(
-                departure = departure,
-                arrival = arrival,
-                departureDate = binding.btnDepartureDate.text.toString(),
-                numberPassenger = binding.btnPassengers.text.toString()
-            ), "ALL_TICKETS_FRAGMENT")
-            .commit()
+        val bundle = Bundle()
+        bundle.putString(TicketsFragment.DEPARTURE_KEY, departure)
+        bundle.putString(TicketsFragment.ARRIVAL_KEY, arrival)
+        bundle.putString(TicketsFragment.DEPARTURE_DATE_KEY, binding.btnDepartureDate.text.toString())
+        bundle.putString(TicketsFragment.NUMBER_PASSENGER_KEY, binding.btnPassengers.text.toString())
+        val navController = findNavController()
+        navController.navigate(viewModel.navigateToTicketsFragment(), bundle)
     }
 
     companion object {
-        private const val DEPARTURE_KEY = "DEPARTURE_KEY"
-        private const val ARRIVAL_KEY = "ARRIVAL_KEY"
-        fun newInstance(departure: String, arrival: String): OffersTicketsFragment {
-            val args = Bundle().apply {
-                putString(DEPARTURE_KEY, departure)
-                putString(ARRIVAL_KEY, arrival)
-            }
-            val fragment = OffersTicketsFragment()
-            fragment.arguments = args
-            return fragment
-        }
+        const val DEPARTURE_KEY = "DEPARTURE_KEY"
+        const val ARRIVAL_KEY = "ARRIVAL_KEY"
     }
 }

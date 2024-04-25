@@ -5,8 +5,7 @@ import ru.tk4dmitriy.screens.closer.CloserFragment
 import ru.tk4dmitriy.screens.closer.api.CloserScreenApi
 
 @Component(
-    dependencies = [CloserComponentDependencies::class],
-    modules = [CloserStarterModule::class]
+    dependencies = [CloserComponentDependencies::class]
 )
 internal abstract class CloserComponent : CloserScreenApi {
     abstract fun inject(fragment: CloserFragment)

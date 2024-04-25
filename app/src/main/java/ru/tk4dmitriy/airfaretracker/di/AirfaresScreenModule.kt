@@ -3,6 +3,7 @@ package ru.tk4dmitriy.airfaretracker.di
 import android.content.Context
 import dagger.Module
 import dagger.Provides
+import ru.tk4dmitriy.airfaretracker.navigation.AirfaresNavigationImpl
 import ru.tk4dmitriy.data.departure_place.api.DeparturePlaceDataApi
 import ru.tk4dmitriy.data.departure_place.impl.di.DeparturePlaceDataComponent
 import ru.tk4dmitriy.data.departure_place.impl.di.DeparturePlaceDataComponentDependencies
@@ -28,6 +29,7 @@ import ru.tk4dmitriy.features.tickets.impl.GetTicketsFeatureCaseImpl
 import ru.tk4dmitriy.screens.airfares.api.AirfaresScreenApi
 import ru.tk4dmitriy.screens.airfares.di.AirfaresComponentDependencies
 import ru.tk4dmitriy.screens.airfares.di.AirfaresComponentHolder
+import ru.tk4dmitriy.screens.airfares.navigation.AirfaresNavigation
 import javax.inject.Singleton
 
 @Module
@@ -97,6 +99,10 @@ class AirfaresScreenModule {
         return TicketsDataComponent.initAndGet(dependencies)
     }
 
+    @Provides
+    fun provideAirfaresNavigation(): AirfaresNavigation =
+        AirfaresNavigationImpl()
+
     @Singleton
     @Provides
     fun provideAirfaresDependencies(
@@ -104,6 +110,7 @@ class AirfaresScreenModule {
         offersDataApi: OffersDataApi,
         offersTicketsDataApi: OffersTicketsDataApi,
         ticketsDataApi: TicketsDataApi,
+        airfaresNavigation: AirfaresNavigation
     ): AirfaresComponentDependencies {
         return object : AirfaresComponentDependencies {
             override fun saveDeparturePlaceFeatureCase(): SaveDeparturePlaceFeatureCase =
@@ -130,6 +137,8 @@ class AirfaresScreenModule {
                 GetTicketsFeatureCaseImpl(
                     ticketsDataApi.getTicketsRepository()
                 )
+
+            override fun getNavigation(): AirfaresNavigation = airfaresNavigation
         }
     }
 

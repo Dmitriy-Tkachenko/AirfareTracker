@@ -6,6 +6,7 @@ import ru.tk4dmitriy.features.departure_place.api.SaveDeparturePlaceFeatureCase
 import ru.tk4dmitriy.features.offers_tickets.api.GetOffersTicketsFeatureCase
 import ru.tk4dmitriy.features.tickets.api.GetTicketsFeatureCase
 import ru.tk4dmitriy.module_injector.BaseDependencies
+import ru.tk4dmitriy.screens.airfares.navigation.AirfaresNavigation
 
 interface AirfaresComponentDependencies : BaseDependencies {
     fun saveDeparturePlaceFeatureCase() : SaveDeparturePlaceFeatureCase
@@ -13,4 +14,5 @@ interface AirfaresComponentDependencies : BaseDependencies {
     fun getOffersFeatureCase() : GetOffersFeatureCase
     fun getOffersTicketsFeatureCase() : GetOffersTicketsFeatureCase
     fun getTicketsFeatureCase() : GetTicketsFeatureCase
+    fun getNavigation() : AirfaresNavigation
 }

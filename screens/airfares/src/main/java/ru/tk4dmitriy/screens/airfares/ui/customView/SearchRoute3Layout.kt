@@ -49,7 +49,7 @@ internal class SearchRoute3Layout @JvmOverloads constructor(
         }
     }
 
-    private val icBack: ImageView by lazy {
+    val icBack: ImageView by lazy {
         ImageView(context).apply {
             setImageResource(R.drawable.ic_back)
         }

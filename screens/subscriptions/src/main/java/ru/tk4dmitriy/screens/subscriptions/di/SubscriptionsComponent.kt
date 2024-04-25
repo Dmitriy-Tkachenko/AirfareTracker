@@ -5,8 +5,7 @@ import ru.tk4dmitriy.screens.subscriptions.SubscriptionsFragment
 import ru.tk4dmitriy.screens.subscriptions.api.SubscriptionsScreenApi
 
 @Component(
-    dependencies = [SubscriptionsComponentDependencies::class],
-    modules = [SubscriptionsStarterModule::class]
+    dependencies = [SubscriptionsComponentDependencies::class]
 )
 internal abstract class SubscriptionsComponent : SubscriptionsScreenApi {
     abstract fun inject(fragment: SubscriptionsFragment)

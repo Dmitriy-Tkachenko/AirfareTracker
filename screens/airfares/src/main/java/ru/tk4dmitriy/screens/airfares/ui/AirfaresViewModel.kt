@@ -14,7 +14,6 @@ import kotlinx.coroutines.flow.flatMapLatest
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.launch
-import ru.tk4dmitriy.core.utils.Utils
 import ru.tk4dmitriy.core.utils.Utils.calculateTravelTime
 import ru.tk4dmitriy.core.utils.Utils.formatNumberByDigits
 import ru.tk4dmitriy.core.utils.Utils.formatStringDateToTime
@@ -23,8 +22,8 @@ import ru.tk4dmitriy.features.departure_place.api.GetDeparturePlaceFeatureCase
 import ru.tk4dmitriy.features.departure_place.api.SaveDeparturePlaceFeatureCase
 import ru.tk4dmitriy.features.offers_tickets.api.GetOffersTicketsFeatureCase
 import ru.tk4dmitriy.features.tickets.api.GetTicketsFeatureCase
-import ru.tk4dmitriy.screens.airfares.R
 import ru.tk4dmitriy.screens.airfares.di.AirfaresComponentHolder
+import ru.tk4dmitriy.screens.airfares.navigation.AirfaresNavigation
 import ru.tk4dmitriy.screens.airfares.ui.models.OfferTicketUi
 import ru.tk4dmitriy.screens.airfares.ui.models.OfferUi
 import ru.tk4dmitriy.screens.airfares.ui.models.TicketUi
@@ -36,6 +35,7 @@ internal class AirfaresViewModel @Inject constructor(
     private val getOffersFeatureCase: GetOffersFeatureCase,
     private val getOffersTicketsFeatureCase: GetOffersTicketsFeatureCase,
     private val getTicketsFeatureCase: GetTicketsFeatureCase,
+    private val airfaresNavigation: AirfaresNavigation
 ) : ViewModel() {
     private val saveDeparturePlaceState: MutableSharedFlow<String> = MutableSharedFlow()
     private val _departurePlaceState: MutableStateFlow<String> = MutableStateFlow("")
@@ -99,6 +99,24 @@ internal class AirfaresViewModel @Inject constructor(
             }
         }
     }
+
+    fun navigateToArrivalDialogFragment() =
+        airfaresNavigation.toArrivalDialogFragment()
+
+    fun navigateToDifficultRouteFragment() : Int =
+        airfaresNavigation.toDifficultRouteFragment()
+
+    fun navigateToWeekendFragment() : Int =
+        airfaresNavigation.toWeekendFragment()
+
+    fun navigateToHotTicketsFragment() : Int =
+        airfaresNavigation.toHotTicketsFragment()
+
+    fun navigateToOffersTicketsFragment() : Int =
+        airfaresNavigation.toOffersTicketsFragment()
+
+    fun navigateToTicketsFragment() : Int =
+        airfaresNavigation.toTicketsFragment()
 
     private fun getDeparturePlace() {
         viewModelScope.launch {
