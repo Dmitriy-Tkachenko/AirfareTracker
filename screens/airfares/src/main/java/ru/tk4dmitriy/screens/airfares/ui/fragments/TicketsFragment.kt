@@ -7,6 +7,7 @@ import android.view.View.OnClickListener
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import ru.tk4dmitriy.core.utils.Utils.formatDate
+import ru.tk4dmitriy.core.utils.Utils.getCurrentDate
 import ru.tk4dmitriy.core.utils.ui.DatePickerHelper
 import ru.tk4dmitriy.screens.airfares.databinding.FragmentTicketsBinding
 import java.util.Date
@@ -16,14 +17,14 @@ internal class TicketsFragment : Fragment() {
 
     private val returnTickerPickerListener = object : DatePickerHelper.DatePickerListener {
         override fun onDateSelected(date: Date) {
-            binding.btnReturnTicket.text = date.formatDate("d MMM', 'E")
+            binding.btnReturnTicket.text = date.formatDate(pattern = "d MMM', 'E")
             binding.btnReturnTicket.setCompoundDrawables(null, null, null, null)
         }
     }
 
     private val departureDatePickerListener = object : DatePickerHelper.DatePickerListener {
         override fun onDateSelected(date: Date) {
-            binding.btnDepartureDate.text = date.formatDate("d MMM', 'E")
+            binding.btnDepartureDate.text = date.formatDate(pattern = "d MMM', 'E")
         }
     }
 
@@ -59,6 +60,7 @@ internal class TicketsFragment : Fragment() {
         binding.apply {
             searchRoute.departureEditText.setText(departure)
             searchRoute.arrivalEditText.setText(arrival)
+            btnDepartureDate.text = getCurrentDate(pattern = "d MMM', 'E")
             btnReturnTicket.setOnClickListener(returnTicketClickListener)
             btnDepartureDate.setOnClickListener(departureDateClickListener)
         }

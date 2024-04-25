@@ -2,6 +2,7 @@ package ru.tk4dmitriy.core.utils
 
 import android.content.res.AssetManager
 import android.icu.text.SimpleDateFormat
+import java.util.Calendar
 import java.util.Date
 import java.util.Locale
 
@@ -41,4 +42,7 @@ object Utils {
 
     fun Date.formatDate(pattern: String): String =
         SimpleDateFormat(pattern, Locale.getDefault()).format(this)
+
+    fun getCurrentDate(pattern: String): String =
+        SimpleDateFormat(pattern, Locale.getDefault()).format(Date())
 }
